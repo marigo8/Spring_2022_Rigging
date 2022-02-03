@@ -1,6 +1,6 @@
 //Maya ASCII 2022 scene
 //Name: Takoto_Rig_01.ma
-//Last modified: Mon, Jan 31, 2022 07:03:22 PM
+//Last modified: Wed, Feb 02, 2022 05:45:59 PM
 //Codeset: 1252
 requires maya "2022";
 requires "stereoCamera" "10.0";
@@ -12,12 +12,12 @@ fileInfo "version" "2022";
 fileInfo "cutIdentifier" "202102181415-29bfc1879c";
 fileInfo "osv" "Windows 10 Pro v2009 (Build: 19043)";
 fileInfo "license" "student";
-fileInfo "UUID" "37F4423A-4313-5688-BBDA-0DBD81AF5473";
+fileInfo "UUID" "9F06C0B1-4034-8EC8-6EB2-E08EF0329550";
 createNode transform -s -n "persp";
 	rename -uid "2103A8FF-49FE-F70F-2897-289AA28287E5";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 92.146398322159939 107.23343597604512 -83.786365932197754 ;
-	setAttr ".r" -type "double3" -20.138352723038871 136.59999999991874 0 ;
+	setAttr ".t" -type "double3" 47.403570255954364 38.726444029021479 123.97011954834799 ;
+	setAttr ".r" -type "double3" 4.4616472768925863 21.000000000002331 -1.0646360075120355e-16 ;
 	setAttr ".rp" -type "double3" -7.1054273576010019e-15 0 -7.1054273576010019e-15 ;
 	setAttr ".rpt" -type "double3" 8.5248484793044589e-15 2.8536512771777861e-15 -1.6144936466050348e-14 ;
 createNode camera -s -n "perspShape" -p "persp";
@@ -25,7 +25,7 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 103.17696100686246;
+	setAttr ".coi" 132.52940933740268;
 	setAttr ".ow" 13.504653159620609;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
@@ -11597,7 +11597,7 @@ createNode joint -n "Takoto_L_Leg_01_jnt" -p "Takoto_Pelvis_Jnt";
 	setAttr ".t" -type "double3" 12.235694885253906 0.35682058334352079 6.6242022514343279 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" -4.1347210859025727e-14 1.2716213731780189e-14 1.7604738436892742 ;
+	setAttr ".jo" -type "double3" 0 0 1.7604738436892742 ;
 	setAttr ".radi" 1.3446225846820654;
 createNode joint -n "Takoto_L_Leg_02_jnt" -p "Takoto_L_Leg_01_jnt";
 	rename -uid "1CBF46AC-4D15-480A-D399-4B90E9CB9254";
@@ -11634,6 +11634,13 @@ createNode joint -n "Takoto_R_Leg_03_jnt" -p "Takoto_R_Leg_02_jnt";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 0 0 -7.3327868099851168 ;
 	setAttr ".radi" 1.2206793041396375;
+createNode joint -n "Takoto_L_Leg_Clavicle" -p "Takoto_Pelvis_Jnt";
+	rename -uid "6DE03D93-4838-D8EF-6D87-08B4D027578F";
+	setAttr ".t" -type "double3" 9.6818873966311259 0.18897739757913812 2.2733653908698308 ;
+	setAttr ".r" -type "double3" 90 0 0 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".radi" 1.3446225846820654;
 createNode joint -n "Takoto_Torso_01_jnt" -p "Takoto_COG_jnt";
 	rename -uid "E18B5FD6-4863-4119-2271-6A941E1DB936";
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
@@ -11659,12 +11666,17 @@ createNode joint -n "Takoto_Head_jnt" -p "Takoto_Neck_jnt";
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".radi" 2;
-createNode joint -n "Takoto_L_Arm_01_jnt" -p "Takoto_Torso_02_jnt";
+createNode joint -n "Takoto_L_Clavicle_jnt" -p "Takoto_Torso_02_jnt";
+	rename -uid "188C8282-4611-B372-0CD2-D7ACE5B39B70";
+	setAttr ".t" -type "double3" 8.3671137650296146 -1.1825561455069966e-07 2.9975403060859844 ;
+	setAttr ".jo" -type "double3" -90 -90 0 ;
+	setAttr ".radi" 2;
+createNode joint -n "Takoto_L_Arm_01_jnt" -p "Takoto_L_Clavicle_jnt";
 	rename -uid "AFF4E6F4-4D15-98AF-909C-96AA4948B5BD";
-	setAttr ".t" -type "double3" 10.330303861260461 -0.89465010166168157 9.3176002502441371 ;
+	setAttr ".t" -type "double3" 6.3200599441581531 1.9631900962308464 -0.89464998340606705 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 90.000000000000014 -89.412598914313136 -90 ;
+	setAttr ".jo" -type "double3" 90 0.58740108568686145 1.2652079743961503e-14 ;
 	setAttr ".radi" 1.5;
 createNode joint -n "Takoto_L_Arm_02_jnt" -p "Takoto_L_Arm_01_jnt";
 	rename -uid "44C41185-4804-0366-5AA7-56A1491FE968";
@@ -11679,33 +11691,38 @@ createNode joint -n "Takoto_L_Arm_03_jnt" -p "Takoto_L_Arm_02_jnt";
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".radi" 1.5;
-createNode joint -n "Takoto_R_Arm_01_jnt" -p "Takoto_Torso_02_jnt";
-	rename -uid "9C7FC0D5-41C7-362F-21F8-26903527E0DA";
-	setAttr ".t" -type "double3" 10.330351574707066 -0.89465011825561469 -9.3176000000000041 ;
+createNode joint -n "Takoto_R_Clavicle_jnt" -p "Takoto_Torso_02_jnt";
+	rename -uid "525C7991-46EF-14AB-6439-09921AA0E242";
+	setAttr ".t" -type "double3" 8.3671515747070657 -1.1825561468947754e-07 -2.997540000000003 ;
+	setAttr ".jo" -type "double3" 90.000000000000014 -90 0 ;
+	setAttr ".radi" 2;
+createNode joint -n "Takoto_R_Arm_01_jnt" -p "Takoto_R_Clavicle_jnt";
+	rename -uid "5F646325-4710-870E-DA0D-09A645EB5647";
+	setAttr ".t" -type "double3" -6.3200600000000007 -1.9632000000000005 0.89465000000000039 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 90.000000000001251 -89.412598914313136 90.000000000001251 ;
+	setAttr ".jo" -type "double3" 90 0.58740108568686167 -8.5879489550676415e-14 ;
 	setAttr ".radi" 1.5;
 createNode joint -n "Takoto_R_Arm_02_jnt" -p "Takoto_R_Arm_01_jnt";
-	rename -uid "E87C8F79-4112-DEF4-1E1F-8FADA408BD20";
-	setAttr ".t" -type "double3" -16.52486840335191 -1.3543881207667141e-06 -2.8421709430404007e-14 ;
+	rename -uid "F36D3EF5-47CF-4854-F071-4D948C15DC26";
+	setAttr ".t" -type "double3" -16.52486840335191 -1.3543881225430709e-06 -1.4210854715202004e-14 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 2.5420722052924377e-15 1.1232569230758939e-13 2.5929090162181829 ;
+	setAttr ".jo" -type "double3" 1.0075919786327177e-17 4.4522128965441348e-16 2.5929090162181829 ;
 	setAttr ".radi" 1.5;
 createNode joint -n "Takoto_R_Arm_03_jnt" -p "Takoto_R_Arm_02_jnt";
-	rename -uid "3AF4AD84-43FC-33E3-AFEB-58A2395A66E3";
-	setAttr ".t" -type "double3" -14.475066337450397 3.1920296197363029e-06 7.1054273576010019e-14 ;
+	rename -uid "28075264-427B-A920-5DCB-FCB945888719";
+	setAttr ".t" -type "double3" -14.475066337450389 3.1920296184040353e-06 4.2632564145606011e-14 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 8.5377364625159387e-07 1.7772746718532479e-23 -1.6737832471535067e-21 ;
+	setAttr ".jo" -type "double3" 1.2074182697257333e-06 2.5134441912657298e-23 -9.3823368596103496e-24 ;
 	setAttr ".radi" 1.5;
 createNode joint -n "Takoto_L_Hand_jnt" -p "Skeleton";
 	rename -uid "36D1BDDF-4DC6-2897-8801-949DB6306F9D";
 	setAttr ".t" -type "double3" 40.307750701904254 95.97275228655343 -0.78774988651276101 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 90.000000000000014 -2.0055079305313281 1.2516768542885276e-14 ;
+	setAttr ".jo" -type "double3" 90.000000000000014 -2.0055079305313281 1.2516768542885277e-14 ;
 	setAttr ".radi" 2;
 createNode joint -n "Takoto_L_Palm_Jnt" -p "Takoto_L_Hand_jnt";
 	rename -uid "3C67B73E-4E17-3BC4-0ED1-AD9C6CF8058C";
@@ -11915,6 +11932,7 @@ createNode joint -n "Takoto_L_Foot_02_jnt" -p "Takoto_L_Foot_01_jnt";
 	setAttr ".t" -type "double3" 6.460881494720403 -11.535796774384107 0.2548539139729451 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jo" -type "double3" 0 0 -90 ;
 	setAttr ".radi" 1.2206793041396375;
 createNode joint -n "Takoto_R_Foot_01_jnt" -p "Skeleton";
 	rename -uid "17605F08-4AEE-8BAE-3E22-6DAC632F3112";
@@ -11928,7 +11946,7 @@ createNode joint -n "Takoto_R_Foot_02_jnt" -p "Takoto_R_Foot_01_jnt";
 	setAttr ".t" -type "double3" -6.4608775356749844 11.535790000000008 -0.25485999999999986 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
-	setAttr ".jo" -type "double3" 8.5377364625159377e-07 -6.1612145392635049e-22 -4.5904625499721653e-30 ;
+	setAttr ".jo" -type "double3" 8.5377364625159377e-07 -6.1612145392635049e-22 -90 ;
 	setAttr ".radi" 1.2206793041396375;
 createNode transform -n "Takoto_Torso_01_Ctrl_Grp";
 	rename -uid "20DA3D26-4C9A-C571-D7C5-30A27F1BFE29";
@@ -11944,6 +11962,9 @@ createNode nurbsCurve -n "Takoto_Torso_01_CtrlShape" -p "Takoto_Torso_01_Ctrl";
 	rename -uid "CC6E6237-42BB-4437-F79C-4EB8C849CF7F";
 	setAttr -k off ".v";
 	setAttr ".tw" yes;
+	setAttr -s 11 ".cp[0:10]" -type "double3" 3.6851611488129947 0 0 3.6851611488129947 
+		0 0 3.6851611488129947 0 0 3.6851611488129947 0 0 3.6851611488129947 0 0 3.6851611488129947 
+		0 0 3.6851611488129947 0 0 3.6851611488129947 0 0 0 0 0 0 0 0 0 0 0;
 createNode transform -n "Takoto_Torso_02_Ctrl_Grp";
 	rename -uid "BED04639-40E2-FDEB-AB0B-709E25EFBC95";
 	setAttr ".t" -type "double3" 3.2752404886363986e-15 85.64244842529294 -0.23024988174438532 ;
@@ -12008,209 +12029,788 @@ createNode nurbsCurve -n "Takoto_L_Arm_01_CtrlShape" -p "Takoto_L_Arm_01_Ctrl";
 	setAttr ".tw" yes;
 createNode transform -n "Takoto_L_Arm_02_Ctrl_Grp";
 	rename -uid "62981863-41AF-4CFD-7BF7-93B5B18F90AA";
-	setAttr ".t" -type "double3" 25.841600418090792 95.972752286553416 -1.2943113395862054 ;
-	setAttr ".r" -type "double3" 90.000000000000014 -2.0055079305313281 -5.9671951289359638e-16 ;
 	setAttr ".s" -type "double3" 0.99999999999999978 1 0.99999999999999978 ;
 	setAttr ".rp" -type "double3" 0 -1.1102230246251565e-15 0 ;
 	setAttr ".sp" -type "double3" 0 -1.1102230246251565e-15 0 ;
 createNode transform -n "Takoto_L_Arm_02_Ctrl" -p "Takoto_L_Arm_02_Ctrl_Grp";
 	rename -uid "99553DB7-4C28-55A5-BAFA-388BE720D615";
+	addAttr -ci true -sn "FollowTranslate" -ln "FollowTranslate" -dv 1 -min 0 -max 
+		1 -at "double";
+	addAttr -ci true -sn "FollowRotate" -ln "FollowRotate" -dv 1 -min 0 -max 1 -at "double";
 	setAttr ".ove" yes;
 	setAttr ".ovc" 13;
+	setAttr -k on ".FollowTranslate";
+	setAttr -k on ".FollowRotate";
 createNode nurbsCurve -n "Takoto_L_Arm_02_CtrlShape" -p "Takoto_L_Arm_02_Ctrl";
 	rename -uid "1CA13832-49D2-0E79-0A99-04BA2ED38644";
 	setAttr -k off ".v";
 	setAttr ".tw" yes;
+createNode parentConstraint -n "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint1" -p "Takoto_L_Arm_02_Ctrl_Grp";
+	rename -uid "1D64B8F5-49A2-1D55-B313-73B5B5BCE5FE";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Arm_01_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 16.524868585093163 -4.4295253721583255e-16 
+		-2.8421709430404007e-14 ;
+	setAttr ".tg[0].tor" -type "double3" 1.3025308925878127e-17 5.7554495878353435e-16 
+		2.5929090162181874 ;
+	setAttr ".lr" -type "double3" 90.000000000000014 -2.0055079305313286 -3.9781300859573095e-16 ;
+	setAttr ".rst" -type "double3" 25.841600418090792 95.97275228655343 -1.2943113395862056 ;
+	setAttr ".rsrr" -type "double3" 90.000000000000014 -2.0055079305313286 -3.9781300859573095e-16 ;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint2" -p "Takoto_L_Arm_02_Ctrl_Grp";
+	rename -uid "E494A75D-4B6A-699B-260D-9DA33FCD4B28";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Arm_01_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 16.524868585093163 -6.6499714214086385e-16 
+		-4.2632564145606011e-14 ;
+	setAttr ".tg[0].tor" -type "double3" 1.3025308925878127e-17 5.7554495878353435e-16 
+		2.5929090162181874 ;
+	setAttr ".lr" -type "double3" 90.000000000000014 -2.0055079305313286 -3.9781300859573095e-16 ;
+	setAttr ".rst" -type "double3" 25.841600418090792 95.972752286553444 -1.2943113395862058 ;
+	setAttr ".rsrr" -type "double3" 90.000000000000014 -2.0055079305313286 -3.9781300859573095e-16 ;
+	setAttr -k on ".w0";
 createNode transform -n "Takoto_L_Arm_03_Ctrl_Grp";
 	rename -uid "E78ADBF6-4BF6-7097-B158-C1860B0C3149";
-	setAttr ".t" -type "double3" 40.307750701904254 95.97275228655343 -0.78774988651276101 ;
-	setAttr ".r" -type "double3" 90.000000000000014 -2.0055079305313281 0 ;
 	setAttr ".s" -type "double3" 0.99999999999999978 1 0.99999999999999978 ;
 	setAttr ".rp" -type "double3" 0 -1.1102230246251565e-15 0 ;
 	setAttr ".sp" -type "double3" 0 -1.1102230246251565e-15 0 ;
 createNode transform -n "Takoto_L_Arm_03_Ctrl" -p "Takoto_L_Arm_03_Ctrl_Grp";
 	rename -uid "61774C64-4D9B-5895-8B4E-0A9166B24490";
+	addAttr -ci true -sn "FollowTranslate" -ln "FollowTranslate" -dv 1 -min 0 -max 
+		1 -at "double";
+	addAttr -ci true -sn "FollowRotate" -ln "FollowRotate" -dv 1 -min 0 -max 1 -at "double";
 	setAttr ".ove" yes;
 	setAttr ".ovc" 13;
+	setAttr -k on ".FollowTranslate";
+	setAttr -k on ".FollowRotate";
 createNode nurbsCurve -n "Takoto_L_Arm_03_CtrlShape" -p "Takoto_L_Arm_03_Ctrl";
 	rename -uid "C4C67F89-437A-4FFB-696D-98A22AC4825F";
 	setAttr -k off ".v";
 	setAttr ".tw" yes;
-createNode transform -n "Takoto_L_Hand_Ctrl_Grp";
-	rename -uid "27C60B19-4F3A-6344-4B46-3D8060E848A0";
-	setAttr ".t" -type "double3" 40.307750701904254 95.97275228655343 -0.78774988651276101 ;
-	setAttr ".r" -type "double3" 90.000000000000014 -2.0055079305313281 0 ;
-	setAttr ".rp" -type "double3" 0 -3.3306690738754696e-16 0 ;
-	setAttr ".sp" -type "double3" 0 -3.3306690738754696e-16 0 ;
-createNode transform -n "Takoto_L_Hand_Ctrl" -p "Takoto_L_Hand_Ctrl_Grp";
-	rename -uid "9BD19EF9-4F67-99E3-D9A9-6688F57CCC6D";
-	setAttr ".ove" yes;
-	setAttr ".ovc" 14;
-createNode nurbsCurve -n "Takoto_L_Hand_CtrlShape" -p "Takoto_L_Hand_Ctrl";
-	rename -uid "6ECBCFB7-40E3-511F-01AA-A29229105B25";
+createNode parentConstraint -n "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint1" -p "Takoto_L_Arm_03_Ctrl_Grp";
+	rename -uid "D765ABA1-4EC5-0BCF-79AC-1A9AFD3F33F8";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Arm_02_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
 	setAttr -k off ".v";
-	setAttr ".tw" yes;
-	setAttr -s 11 ".cp[0:10]" -type "double3" 0.65595406149992186 -0.022969555550284237 
-		0 0.65595406149992186 -0.022969555550284682 5.1002658874662264e-18 0.65595406149992186 
-		-0.022969555550284237 0 0.6559540614999223 -0.022969555550283835 0 0.65595406149992186 
-		-0.022969555550284237 0 0.65595406149992186 -0.022969555550284682 5.1002658874664729e-18 
-		0.65595406149992186 -0.022969555550284237 0 0.6559540614999223 -0.022969555550283835 
-		0 0 0 0 0 0 0 0 0 0;
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 14.475016702567778 3.0420110874729289e-14 -1.5473036039151455e-32 ;
+	setAttr ".tg[0].tor" -type "double3" 0 -1.7655625192200634e-31 -7.9513867036587919e-16 ;
+	setAttr ".lr" -type "double3" 90.000000000000014 -2.0055079305313286 0 ;
+	setAttr ".rst" -type "double3" 40.307750701904247 95.97275228655343 -0.78774988651276057 ;
+	setAttr ".rsrr" -type "double3" 90.000000000000014 -2.0055079305313286 0 ;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint2" -p "Takoto_L_Arm_03_Ctrl_Grp";
+	rename -uid "767CD85F-4B81-78B3-5E07-05828A9BB459";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Arm_02_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 14.475016702567771 3.1308289294429414e-14 -1.5473036039151455e-32 ;
+	setAttr ".tg[0].tor" -type "double3" 0 -1.7655625192200634e-31 -7.9513867036587919e-16 ;
+	setAttr ".lr" -type "double3" 90.000000000000014 -2.0055079305313286 0 ;
+	setAttr ".rst" -type "double3" 40.30775070190424 95.97275228655343 -0.78774988651276001 ;
+	setAttr ".rsrr" -type "double3" 90.000000000000014 -2.0055079305313286 0 ;
+	setAttr -k on ".w0";
 createNode transform -n "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp";
 	rename -uid "878B8160-4C48-03CC-CB22-83BE456CFF6E";
-	setAttr ".t" -type "double3" 48.892486572265625 95.492950439453139 -4.3960876464843661 ;
-	setAttr ".r" -type "double3" 179.99999999999997 1.4367289430308292 -26.414621916479156 ;
 	setAttr ".rp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 	setAttr ".sp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 createNode transform -n "Takoto_L_Finger_05_Knuckle_01_Ctrl" -p "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp";
 	rename -uid "32B83FF0-4056-AF2F-2885-BE9060FD1982";
+	addAttr -ci true -sn "FollowTranslate" -ln "FollowTranslate" -dv 1 -min 0 -max 
+		1 -at "double";
+	addAttr -ci true -sn "FollowRotate" -ln "FollowRotate" -dv 1 -min 0 -max 1 -at "double";
 	setAttr ".ove" yes;
 	setAttr ".ovc" 14;
+	setAttr -k on ".FollowTranslate";
+	setAttr -k on ".FollowRotate";
 createNode nurbsCurve -n "Takoto_L_Finger_05_Knuckle_01_CtrlShape" -p "Takoto_L_Finger_05_Knuckle_01_Ctrl";
 	rename -uid "D87D678F-4379-3E8F-03E9-92940A11AABA";
 	setAttr -k off ".v";
 	setAttr ".tw" yes;
+createNode parentConstraint -n "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint1" 
+		-p "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp";
+	rename -uid "BEDE6485-4974-30CD-0BB5-C59B6EA9A49B";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Palm_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0.54518127441407638 -2.0817595663305912 -5.5586843799277261 ;
+	setAttr ".tg[0].tor" -type "double3" 82.640071469259325 63.366316290321123 -7.2263864143512118 ;
+	setAttr ".lr" -type "double3" 179.99999999999997 1.4367289430308308 -26.414621916479152 ;
+	setAttr ".rst" -type "double3" 48.892486572265618 95.492950439453125 -4.3960876464843652 ;
+	setAttr ".rsrr" -type "double3" 179.99999999999997 1.4367289430308308 -26.414621916479152 ;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint2" 
+		-p "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp";
+	rename -uid "7DF68CC5-411B-20D7-8464-DB8BA5B76E57";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Palm_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0.54518127441409059 -2.0817595663305903 -5.558684379927719 ;
+	setAttr ".tg[0].tor" -type "double3" 82.640071469259325 63.366316290321123 -7.2263864143512118 ;
+	setAttr ".lr" -type "double3" 179.99999999999997 1.4367289430308308 -26.414621916479152 ;
+	setAttr ".rst" -type "double3" 48.892486572265611 95.492950439453111 -4.3960876464843643 ;
+	setAttr ".rsrr" -type "double3" 179.99999999999997 1.4367289430308308 -26.414621916479152 ;
+	setAttr -k on ".w0";
 createNode transform -n "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp";
 	rename -uid "1362B623-49A9-4151-5767-D3A2F572439E";
-	setAttr ".t" -type "double3" 51.024719238281243 94.433822631835952 -4.4558000564575089 ;
-	setAttr ".r" -type "double3" -179.99999999999952 -3.4431361943230914 -43.185548258752021 ;
 	setAttr ".s" -type "double3" 0.99999999999999967 0.99999999999999967 0.99999999999999967 ;
 	setAttr ".rp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 	setAttr ".sp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 createNode transform -n "Takoto_L_Finger_05_Knuckle_02_Ctrl" -p "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp";
 	rename -uid "62DBC448-4B41-BFA1-63DD-3C8951B4D0DE";
+	addAttr -ci true -sn "FollowTranslate" -ln "FollowTranslate" -dv 1 -min 0 -max 
+		1 -at "double";
+	addAttr -ci true -sn "FollowRotate" -ln "FollowRotate" -dv 1 -min 0 -max 1 -at "double";
 	setAttr ".ove" yes;
 	setAttr ".ovc" 14;
+	setAttr -k on ".FollowTranslate";
+	setAttr -k on ".FollowRotate";
 createNode nurbsCurve -n "Takoto_L_Finger_05_Knuckle_02_CtrlShape" -p "Takoto_L_Finger_05_Knuckle_02_Ctrl";
 	rename -uid "17058D6B-4987-9548-52DF-D88B80E2524C";
 	setAttr -k off ".v";
 	setAttr ".tw" yes;
+createNode parentConstraint -n "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint1" 
+		-p "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp";
+	rename -uid "6B17BF94-4554-ADF5-583B-78BC796AA266";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Finger_05_Knuckle_01_CtrlW0" 
+		-dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 2.381540137557387 -1.452975496740278e-14 -2.4096458378873978e-18 ;
+	setAttr ".tg[0].tor" -type "double3" 0.41599286743073466 4.8186529562261917 16.800894789105538 ;
+	setAttr ".lr" -type "double3" -179.99999999999952 -3.4431361943230918 -43.185548258752029 ;
+	setAttr ".rst" -type "double3" 51.02471923828125 94.433822631835966 -4.4558000564575089 ;
+	setAttr ".rsrr" -type "double3" -179.99999999999952 -3.4431361943230918 -43.185548258752029 ;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint2" 
+		-p "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp";
+	rename -uid "3F3BDA75-4B88-0A7C-D2F8-138FFFC1FFCC";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Finger_05_Knuckle_01_CtrlW0" 
+		-dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 2.381540137557387 -2.8740609682604784e-14 -2.4096458378873978e-18 ;
+	setAttr ".tg[0].tor" -type "double3" 0.41599286743073466 4.8186529562261917 16.800894789105538 ;
+	setAttr ".lr" -type "double3" -179.99999999999952 -3.4431361943230905 -43.185548258752029 ;
+	setAttr ".rst" -type "double3" 51.024719238281257 94.43382263183598 -4.4558000564575089 ;
+	setAttr ".rsrr" -type "double3" -179.99999999999952 -3.4431361943230918 -43.185548258752029 ;
+	setAttr -k on ".w0";
 createNode transform -n "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp";
 	rename -uid "00C4E70D-4053-3E8F-E19B-7DA1EE968F6D";
-	setAttr ".t" -type "double3" 48.93214416503907 96.304611206054716 -2.2268500328063876 ;
-	setAttr ".r" -type "double3" 179.99999999999997 0.49187507967868288 -19.833081483279742 ;
 	setAttr ".rp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 	setAttr ".sp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 createNode transform -n "Takoto_L_Finger_04_Knuckle_01_Ctrl" -p "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp";
 	rename -uid "4467EB35-4BAE-8426-3363-1EBB43B0F465";
+	addAttr -ci true -sn "FollowTranslate" -ln "FollowTranslate" -dv 1 -min 0 -max 
+		1 -at "double";
+	addAttr -ci true -sn "FollowRotate" -ln "FollowRotate" -dv 1 -min 0 -max 1 -at "double";
 	setAttr ".ove" yes;
 	setAttr ".ovc" 14;
+	setAttr -k on ".FollowTranslate";
+	setAttr -k on ".FollowRotate";
 createNode nurbsCurve -n "Takoto_L_Finger_04_Knuckle_01_CtrlShape" -p "Takoto_L_Finger_04_Knuckle_01_Ctrl";
 	rename -uid "E1749EDD-444C-2201-481A-1EA9DD8D669F";
 	setAttr -k off ".v";
 	setAttr ".tw" yes;
+createNode parentConstraint -n "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint1" 
+		-p "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp";
+	rename -uid "F9B6FBA8-4996-C0D1-27F9-A5A04E033083";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Palm_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -0.26647949218751454 0.084761478676746549 -5.6742313868133465 ;
+	setAttr ".tg[0].tor" -type "double3" 82.761757801210962 70.013597168674011 -6.9735659844981903 ;
+	setAttr ".lr" -type "double3" 179.99999999999997 0.49187507967868183 -19.833081483279745 ;
+	setAttr ".rst" -type "double3" 48.932144165039062 96.304611206054716 -2.2268500328063872 ;
+	setAttr ".rsrr" -type "double3" 179.99999999999997 0.49187507967868183 -19.833081483279745 ;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint2" 
+		-p "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp";
+	rename -uid "9318E5F6-4E76-7562-4075-B49FF7CA470F";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Palm_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" -0.26647949218751454 0.084761478676747437 -5.6742313868133394 ;
+	setAttr ".tg[0].tor" -type "double3" 82.761757801210962 70.013597168674011 -6.9735659844981903 ;
+	setAttr ".lr" -type "double3" 179.99999999999997 0.49187507967868183 -19.833081483279745 ;
+	setAttr ".rst" -type "double3" 48.932144165039048 96.304611206054716 -2.2268500328063867 ;
+	setAttr ".rsrr" -type "double3" 179.99999999999997 0.49187507967868183 -19.833081483279745 ;
+	setAttr -k on ".w0";
 createNode transform -n "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp";
 	rename -uid "C4855F85-49BF-51DB-D3EF-108B08035726";
-	setAttr ".t" -type "double3" 51.797462463378906 95.271163940429716 -2.2530000209808252 ;
-	setAttr ".r" -type "double3" -179.99999999999909 -3.4891425916798617 -37.602179820049322 ;
 	setAttr ".rp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 	setAttr ".sp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 createNode transform -n "Takoto_L_Finger_04_Knuckle_02_Ctrl" -p "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp";
 	rename -uid "DF65C02E-475A-EE0F-BE0C-1F9CB7E0BD91";
+	addAttr -ci true -sn "FollowTranslate" -ln "FollowTranslate" -dv 1 -min 0 -max 
+		1 -at "double";
+	addAttr -ci true -sn "FollowRotate" -ln "FollowRotate" -dv 1 -min 0 -max 1 -at "double";
 	setAttr ".ove" yes;
 	setAttr ".ovc" 14;
+	setAttr -k on ".FollowTranslate";
+	setAttr -k on ".FollowRotate";
 createNode nurbsCurve -n "Takoto_L_Finger_04_Knuckle_02_CtrlShape" -p "Takoto_L_Finger_04_Knuckle_02_Ctrl";
 	rename -uid "8E01794A-461E-CCE6-E3E8-19A26252D417";
 	setAttr -k off ".v";
 	setAttr ".tw" yes;
+createNode parentConstraint -n "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint1" 
+		-p "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp";
+	rename -uid "156ED1E6-4388-A7F0-758A-12B78A171E8A";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Finger_04_Knuckle_01_CtrlW0" 
+		-dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 3.0461034164175018 -3.1717765969229518e-16 
+		8.8730581632822658e-16 ;
+	setAttr ".tg[0].tor" -type "double3" 0.15046841924170759 3.9575398090466583 17.778869667772806 ;
+	setAttr ".lr" -type "double3" -179.99999999999909 -3.4891425916798617 -37.602179820049322 ;
+	setAttr ".rst" -type "double3" 51.797462463378899 95.271163940429716 -2.2530000209808256 ;
+	setAttr ".rsrr" -type "double3" -179.99999999999909 -3.4891425916798617 -37.602179820049322 ;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint2" 
+		-p "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp";
+	rename -uid "75AFADFD-414E-B44C-BC30-B4B4826E6A7B";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Finger_04_Knuckle_01_CtrlW0" 
+		-dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 3.0461034164174947 -3.1717765969229518e-16 
+		1.3313950261782892e-15 ;
+	setAttr ".tg[0].tor" -type "double3" 0.15046841924170759 3.9575398090466583 17.778869667772806 ;
+	setAttr ".lr" -type "double3" -179.99999999999909 -3.4891425916798631 -37.602179820049322 ;
+	setAttr ".rst" -type "double3" 51.797462463378892 95.27116394042973 -2.2530000209808261 ;
+	setAttr ".rsrr" -type "double3" -179.99999999999909 -3.4891425916798617 -37.602179820049322 ;
+	setAttr -k on ".w0";
 createNode transform -n "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp";
 	rename -uid "07376E93-42EE-F294-A904-59B7B19FEBC9";
-	setAttr ".t" -type "double3" 43.235301971435554 95.558975219726577 3.1341791152954173 ;
-	setAttr ".r" -type "double3" -61.247520269437253 -21.675562786913492 -56.052827264472249 ;
 	setAttr ".s" -type "double3" 1 0.99999999999999989 0.99999999999999978 ;
 	setAttr ".rp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 	setAttr ".sp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 createNode transform -n "Takoto_L_Finger_01_Knuckle_02_Ctrl" -p "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp";
 	rename -uid "C7B26AC3-4066-4952-0300-0787CF80E19C";
+	addAttr -ci true -sn "FollowTranslate" -ln "FollowTranslate" -dv 1 -min 0 -max 
+		1 -at "double";
+	addAttr -ci true -sn "FollowRotate" -ln "FollowRotate" -dv 1 -min 0 -max 1 -at "double";
 	setAttr ".ove" yes;
 	setAttr ".ovc" 14;
+	setAttr -k on ".FollowTranslate";
+	setAttr -k on ".FollowRotate";
 createNode nurbsCurve -n "Takoto_L_Finger_01_Knuckle_02_CtrlShape" -p "Takoto_L_Finger_01_Knuckle_02_Ctrl";
 	rename -uid "6845E6DF-4405-4250-57A2-E48CE167D350";
 	setAttr -k off ".v";
 	setAttr ".tw" yes;
+createNode parentConstraint -n "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint1" 
+		-p "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp";
+	rename -uid "F396EAEB-4EA8-8B07-663A-99989935578C";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Finger_01_Knuckle_01_CtrlW0" 
+		-dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 3.3153394765069066 -1.8001027484925913e-14 
+		-1.4312619393244996e-14 ;
+	setAttr ".tg[0].tor" -type "double3" 18.370679972274889 14.196645439058283 46.173717722661465 ;
+	setAttr ".lr" -type "double3" -61.247520269437253 -21.675562786913488 -56.052827264472249 ;
+	setAttr ".rst" -type "double3" 43.235301971435547 95.558975219726577 3.1341791152954168 ;
+	setAttr ".rsrr" -type "double3" -61.247520269437253 -21.675562786913488 -56.052827264472249 ;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint2" 
+		-p "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp";
+	rename -uid "1302D4D1-4914-EC9B-D4ED-D0BD4DAC9596";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Finger_01_Knuckle_01_CtrlW0" 
+		-dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 3.3153394765069031 -2.5106454842526915e-14 
+		-1.4312619393244996e-14 ;
+	setAttr ".tg[0].tor" -type "double3" 18.370679972274889 14.196645439058283 46.173717722661465 ;
+	setAttr ".lr" -type "double3" -61.247520269437253 -21.675562786913488 -56.052827264472249 ;
+	setAttr ".rst" -type "double3" 43.235301971435547 95.558975219726577 3.1341791152954159 ;
+	setAttr ".rsrr" -type "double3" -61.247520269437253 -21.675562786913488 -56.052827264472249 ;
+	setAttr -k on ".w0";
 createNode transform -n "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp";
 	rename -uid "E0B4D6F0-4F4B-325B-ABA1-348ECF735FD5";
-	setAttr ".t" -type "double3" 44.671104431152351 93.426071166992202 4.1560935974121165 ;
-	setAttr ".r" -type "double3" -76.163474912646109 -20.844423526610047 -34.690212768788399 ;
 	setAttr ".s" -type "double3" 0.99999999999999989 0.99999999999999989 0.99999999999999989 ;
 	setAttr ".rp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 	setAttr ".sp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 createNode transform -n "Takoto_L_Finger_01_Knuckle_03_Ctrl" -p "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp";
 	rename -uid "2046E808-4C62-D9C6-8C0C-28889C3EE2DE";
+	addAttr -ci true -sn "FollowTranslate" -ln "FollowTranslate" -dv 1 -min 0 -max 
+		1 -at "double";
+	addAttr -ci true -sn "FollowRotate" -ln "FollowRotate" -dv 1 -min 0 -max 1 -at "double";
 	setAttr ".ove" yes;
 	setAttr ".ovc" 14;
+	setAttr -k on ".FollowTranslate";
+	setAttr -k on ".FollowRotate";
 createNode nurbsCurve -n "Takoto_L_Finger_01_Knuckle_03_CtrlShape" -p "Takoto_L_Finger_01_Knuckle_03_Ctrl";
 	rename -uid "965CA428-41DE-3FAA-F295-1FBB3FF85320";
 	setAttr -k off ".v";
 	setAttr ".tw" yes;
+createNode parentConstraint -n "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint1" 
+		-p "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp";
+	rename -uid "DB4999C8-4910-18F1-A711-24B152A84899";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Finger_01_Knuckle_02_CtrlW0" 
+		-dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 2.7667883204646131 -3.8801037121924182e-15 
+		4.7203289781099944e-17 ;
+	setAttr ".tg[0].tor" -type "double3" -8.5520855945869396 -17.630990872600073 9.4015958256924179 ;
+	setAttr ".lr" -type "double3" -76.163474912646123 -20.844423526610054 -34.690212768788392 ;
+	setAttr ".rst" -type "double3" 44.671104431152344 93.426071166992188 4.1560935974121138 ;
+	setAttr ".rsrr" -type "double3" -76.163474912646123 -20.844423526610054 -34.690212768788392 ;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint2" 
+		-p "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp";
+	rename -uid "5A1CC555-4697-3448-2AB2-39B9AC260034";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Finger_01_Knuckle_02_CtrlW0" 
+		-dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 2.7667883204646273 -7.4328173909929191e-15 
+		4.7203289781099944e-17 ;
+	setAttr ".tg[0].tor" -type "double3" -8.5520855945869396 -17.630990872600073 9.4015958256924179 ;
+	setAttr ".lr" -type "double3" -76.163474912646123 -20.844423526610054 -34.690212768788392 ;
+	setAttr ".rst" -type "double3" 44.671104431152351 93.426071166992188 4.1560935974121218 ;
+	setAttr ".rsrr" -type "double3" -76.163474912646123 -20.844423526610054 -34.690212768788392 ;
+	setAttr -k on ".w0";
 createNode transform -n "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp";
 	rename -uid "BEF1DC18-488E-F17C-661B-19A3780AB858";
-	setAttr ".t" -type "double3" 48.651287078857429 96.173309326171889 2.3794999122619709 ;
-	setAttr ".r" -type "double3" 180.00000000000003 -3.0895478515094656 -20.14453911153193 ;
 	setAttr ".rp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 	setAttr ".sp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 createNode transform -n "Takoto_L_Finger_02_Knuckle_01_Ctrl" -p "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp";
 	rename -uid "AF6D37FA-4A01-567C-73CC-FB9E38BC4D4B";
+	addAttr -ci true -sn "FollowTranslate" -ln "FollowTranslate" -dv 1 -min 0 -max 
+		1 -at "double";
+	addAttr -ci true -sn "FollowRotate" -ln "FollowRotate" -dv 1 -min 0 -max 1 -at "double";
 	setAttr ".ove" yes;
 	setAttr ".ovc" 14;
+	setAttr -k on ".FollowTranslate";
+	setAttr -k on ".FollowRotate";
 createNode nurbsCurve -n "Takoto_L_Finger_02_Knuckle_01_CtrlShape" -p "Takoto_L_Finger_02_Knuckle_01_Ctrl";
 	rename -uid "27830769-4B49-E3E0-549F-73B4D7536A0D";
 	setAttr -k off ".v";
 	setAttr ".tw" yes;
+createNode parentConstraint -n "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint1" 
+		-p "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp";
+	rename -uid "B5AC68B1-45BC-92EC-BEA3-F7B47A140A3B";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Hand_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 8.4492653998863503 2.8733229480277456 -0.2005570396184598 ;
+	setAttr ".tg[0].tor" -type "double3" 88.867358676400841 -20.113993130105534 1.2849234437760522 ;
+	setAttr ".lr" -type "double3" 180 -3.0895478515094656 -20.14453911153193 ;
+	setAttr ".rst" -type "double3" 48.651287078857429 96.173309326171889 2.3794999122619709 ;
+	setAttr ".rsrr" -type "double3" 180 -3.0895478515094656 -20.14453911153193 ;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint2" 
+		-p "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp";
+	rename -uid "708490CC-410E-02FF-A600-BC91D8F70903";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Hand_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 8.4492653998863503 2.8733229480277456 -0.2005570396184598 ;
+	setAttr ".tg[0].tor" -type "double3" 88.867358676400841 -20.113993130105534 1.2849234437760522 ;
+	setAttr ".lr" -type "double3" 180 -3.0895478515094656 -20.14453911153193 ;
+	setAttr ".rst" -type "double3" 48.651287078857429 96.173309326171889 2.3794999122619709 ;
+	setAttr ".rsrr" -type "double3" 180 -3.0895478515094656 -20.14453911153193 ;
+	setAttr -k on ".w0";
 createNode transform -n "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp";
 	rename -uid "B548DCAF-48DB-85B6-A54A-04A079BB153D";
-	setAttr ".t" -type "double3" 51.55429840087892 95.1083984375 2.5464000701904381 ;
-	setAttr ".r" -type "double3" -179.99999999999929 1.7101883206608004 -42.928208796783331 ;
 	setAttr ".s" -type "double3" 1 1 1.0000000000000002 ;
 	setAttr ".rp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 	setAttr ".sp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 createNode transform -n "Takoto_L_Finger_02_Knuckle_02_Ctrl" -p "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp";
 	rename -uid "FB983CF5-433D-0030-CD16-6485F0CF2D3D";
+	addAttr -ci true -sn "FollowTranslate" -ln "FollowTranslate" -dv 1 -min 0 -max 
+		1 -at "double";
+	addAttr -ci true -sn "FollowRotate" -ln "FollowRotate" -dv 1 -min 0 -max 1 -at "double";
 	setAttr ".ove" yes;
 	setAttr ".ovc" 14;
+	setAttr -k on ".FollowTranslate";
+	setAttr -k on ".FollowRotate";
 createNode nurbsCurve -n "Takoto_L_Finger_02_Knuckle_02_CtrlShape" -p "Takoto_L_Finger_02_Knuckle_02_Ctrl";
 	rename -uid "333CA9A0-4497-BB04-F778-5DA590B6527A";
 	setAttr -k off ".v";
 	setAttr ".tw" yes;
+createNode parentConstraint -n "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint1" 
+		-p "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp";
+	rename -uid "94A5CC50-4BDB-DBAF-5B7C-F2AA8514FA97";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Finger_02_Knuckle_01_CtrlW0" 
+		-dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 3.0966700824132758 -3.0707888331072459e-16 
+		-6.5918216496146838e-16 ;
+	setAttr ".tg[0].tor" -type "double3" -1.1997382395196763 -4.5580884188997501 22.849286536708838 ;
+	setAttr ".lr" -type "double3" -179.99999999999929 1.7101883206607997 -42.928208796783338 ;
+	setAttr ".rst" -type "double3" 51.55429840087892 95.1083984375 2.5464000701904381 ;
+	setAttr ".rsrr" -type "double3" -179.99999999999929 1.7101883206607997 -42.928208796783338 ;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint2" 
+		-p "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp";
+	rename -uid "81F99F9F-43FB-BFCC-B0FD-2CAFBA991E0A";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Finger_02_Knuckle_01_CtrlW0" 
+		-dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 3.0966700824132758 -3.0707888331072459e-16 
+		-6.5918216496146838e-16 ;
+	setAttr ".tg[0].tor" -type "double3" -1.1997382395196763 -4.5580884188997501 22.849286536708838 ;
+	setAttr ".lr" -type "double3" -179.99999999999929 1.7101883206607997 -42.928208796783338 ;
+	setAttr ".rst" -type "double3" 51.55429840087892 95.1083984375 2.5464000701904381 ;
+	setAttr ".rsrr" -type "double3" -179.99999999999929 1.7101883206607997 -42.928208796783338 ;
+	setAttr -k on ".w0";
 createNode transform -n "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp";
 	rename -uid "20A00D41-4C88-C381-3F46-DE9E713BA571";
-	setAttr ".t" -type "double3" 48.948989868164062 96.623596191406264 0.047950029373176162 ;
-	setAttr ".r" -type "double3" 180 -1.1765560818168035 -19.097415791129091 ;
 	setAttr ".rp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 	setAttr ".sp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 createNode transform -n "Takoto_L_Finger_03_Knuckle_01_Ctrl" -p "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp";
 	rename -uid "519852D6-4C89-C94E-E689-05825C44F32D";
+	addAttr -ci true -sn "FollowTranslate" -ln "FollowTranslate" -dv 1 -min 0 -max 
+		1 -at "double";
+	addAttr -ci true -sn "FollowRotate" -ln "FollowRotate" -dv 1 -min 0 -max 1 -at "double";
 	setAttr ".ove" yes;
 	setAttr ".ovc" 14;
+	setAttr -k on ".FollowTranslate";
+	setAttr -k on ".FollowRotate";
 createNode nurbsCurve -n "Takoto_L_Finger_03_Knuckle_01_CtrlShape" -p "Takoto_L_Finger_03_Knuckle_01_Ctrl";
 	rename -uid "210D3F14-4F2B-7F29-47BF-11B6D173E390";
 	setAttr -k off ".v";
 	setAttr ".tw" yes;
+createNode parentConstraint -n "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint1" 
+		-p "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp";
+	rename -uid "F4D1FDAB-4E6C-5898-06A4-699DA5E8BAAC";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Hand_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 8.6651919205705354 0.5327829366575223 -0.65084390485283483 ;
+	setAttr ".tg[0].tor" -type "double3" 89.592675846784047 -19.093233471129672 -0.76044814957551765 ;
+	setAttr ".lr" -type "double3" 180 -1.1765560818168048 -19.097415791129091 ;
+	setAttr ".rst" -type "double3" 48.948989868164062 96.623596191406264 0.047950029373176384 ;
+	setAttr ".rsrr" -type "double3" 180 -1.1765560818168048 -19.097415791129091 ;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint2" 
+		-p "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp";
+	rename -uid "AF631743-4999-397B-190D-5D85CA9499AB";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Hand_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 8.6651919205705354 0.53278293665752252 -0.65084390485283483 ;
+	setAttr ".tg[0].tor" -type "double3" 89.592675846784047 -19.093233471129672 -0.76044814957551765 ;
+	setAttr ".lr" -type "double3" 180 -1.1765560818168048 -19.097415791129091 ;
+	setAttr ".rst" -type "double3" 48.948989868164062 96.623596191406264 0.047950029373176606 ;
+	setAttr ".rsrr" -type "double3" 180 -1.1765560818168048 -19.097415791129091 ;
+	setAttr -k on ".w0";
 createNode transform -n "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp";
 	rename -uid "F29E2BD6-45E1-718B-4D10-9DA568203B56";
-	setAttr ".t" -type "double3" 52.061649322509766 95.545898437500014 0.11559998989106005 ;
-	setAttr ".r" -type "double3" -179.99999999999841 2.3914266799930348 -34.40507665678841 ;
 	setAttr ".s" -type "double3" 1 1 0.99999999999999989 ;
 	setAttr ".rp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 	setAttr ".sp" -type "double3" 0 -3.3306690738754696e-16 0 ;
 createNode transform -n "Takoto_L_Finger_03_Knuckle_02_Ctrl" -p "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp";
 	rename -uid "9C04CD45-4B92-9DC0-8875-CEAED63DD227";
+	addAttr -ci true -sn "FollowTranslate" -ln "FollowTranslate" -dv 1 -min 0 -max 
+		1 -at "double";
+	addAttr -ci true -sn "FollowRotate" -ln "FollowRotate" -dv 1 -min 0 -max 1 -at "double";
 	setAttr ".ove" yes;
 	setAttr ".ovc" 14;
+	setAttr -k on ".FollowTranslate";
+	setAttr -k on ".FollowRotate";
 createNode nurbsCurve -n "Takoto_L_Finger_03_Knuckle_02_CtrlShape" -p "Takoto_L_Finger_03_Knuckle_02_Ctrl";
 	rename -uid "6DB1D304-4B5A-A3B0-B4B2-919EC1689AFC";
 	setAttr -k off ".v";
 	setAttr ".tw" yes;
+createNode parentConstraint -n "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint1" 
+		-p "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp";
+	rename -uid "15E88435-4947-E77F-7BE9-CC9A415712B2";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Finger_03_Knuckle_01_CtrlW0" 
+		-dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 3.2946407762698993 -3.21250402304831e-16 8.3447277143442328e-16 ;
+	setAttr ".tg[0].tor" -type "double3" -0.31118201192390726 -3.5262002960745802 15.323724313039342 ;
+	setAttr ".lr" -type "double3" -179.99999999999841 2.3914266799930348 -34.405076656788424 ;
+	setAttr ".rst" -type "double3" 52.061649322509766 95.545898437500014 0.11559998989105988 ;
+	setAttr ".rsrr" -type "double3" -179.99999999999841 2.3914266799930348 -34.405076656788424 ;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint2" 
+		-p "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp";
+	rename -uid "AB99E42A-47D0-0511-F228-88B2ADBE3E04";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Finger_03_Knuckle_01_CtrlW0" 
+		-dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 3.2946407762698993 -3.21250402304831e-16 1.0010062251281968e-15 ;
+	setAttr ".tg[0].tor" -type "double3" -0.31118201192390726 -3.5262002960745802 15.323724313039342 ;
+	setAttr ".lr" -type "double3" -179.99999999999841 2.3914266799930348 -34.405076656788424 ;
+	setAttr ".rst" -type "double3" 52.061649322509766 95.545898437500014 0.11559998989105971 ;
+	setAttr ".rsrr" -type "double3" -179.99999999999841 2.3914266799930348 -34.405076656788424 ;
+	setAttr -k on ".w0";
 createNode transform -n "Takoto_L_Palm_Ctrl_Grp";
 	rename -uid "0CA6E0B7-4343-838F-C89E-74B700725EF4";
-	setAttr ".t" -type "double3" 43.264354705810568 96.038131713867202 -2.5101325511932302 ;
-	setAttr ".r" -type "double3" 92.005507930531337 1.2722218725854064e-14 -90 ;
 	setAttr ".rp" -type "double3" 0 -1.1102230246251565e-15 0 ;
 	setAttr ".sp" -type "double3" 0 -1.1102230246251565e-15 0 ;
 createNode transform -n "Takoto_L_Palm_Ctrl" -p "Takoto_L_Palm_Ctrl_Grp";
 	rename -uid "B8329A8A-433C-155C-4C34-F38DD8C48E45";
+	addAttr -ci true -sn "FollowTranslate" -ln "FollowTranslate" -dv 1 -min 0 -max 
+		1 -at "double";
+	addAttr -ci true -sn "FollowRotate" -ln "FollowRotate" -dv 1 -min 0 -max 1 -at "double";
 	setAttr ".ove" yes;
 	setAttr ".ovc" 14;
+	setAttr -k on ".FollowTranslate";
+	setAttr -k on ".FollowRotate";
 createNode nurbsCurve -n "Takoto_L_Palm_CtrlShape" -p "Takoto_L_Palm_Ctrl";
 	rename -uid "E9374B8F-4E28-85A3-3801-A9ABA396F23D";
 	setAttr -k off ".v";
@@ -12222,16 +12822,63 @@ createNode nurbsCurve -n "Takoto_L_Palm_CtrlShape" -p "Takoto_L_Palm_Ctrl";
 		1.4654943925052066e-14 3.2957379837753962 4.4408920985006262e-16 1.4217691259069792e-14 
 		3.2957379837753971 2.2204460492503131e-16 1.3766765505351941e-14 3.2957379837753962 
 		5.3499763126320578e-17 1.3766765505351941e-14 0 0 0 0 0 0 0 0 0;
+createNode parentConstraint -n "Takoto_L_Palm_Ctrl_Grp_parentConstraint1" -p "Takoto_L_Palm_Ctrl_Grp";
+	rename -uid "BE513F43-41B7-700D-000B-448EE9BF722C";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Hand_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 2.8945172254918248 -1.8247956901630775 -0.065379427313771998 ;
+	setAttr ".tg[0].tor" -type "double3" 1.073437204993937e-14 -89.999999999999986 0 ;
+	setAttr ".lr" -type "double3" 92.005507930531337 6.3611093629270335e-15 -89.999999999999986 ;
+	setAttr ".rst" -type "double3" 43.264354705810568 96.038131713867202 -2.5101325511932302 ;
+	setAttr ".rsrr" -type "double3" 92.005507930531337 6.3611093629270335e-15 -89.999999999999986 ;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Takoto_L_Palm_Ctrl_Grp_parentConstraint2" -p "Takoto_L_Palm_Ctrl_Grp";
+	rename -uid "E673EF63-4134-7120-8EC0-AE820F6AA1D6";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Hand_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 2.8945172254918248 -1.8247956901630775 -0.065379427313771998 ;
+	setAttr ".tg[0].tor" -type "double3" 1.073437204993937e-14 -89.999999999999986 0 ;
+	setAttr ".lr" -type "double3" 92.005507930531337 6.3611093629270335e-15 -89.999999999999986 ;
+	setAttr ".rst" -type "double3" 43.264354705810568 96.038131713867202 -2.5101325511932302 ;
+	setAttr ".rsrr" -type "double3" 92.005507930531337 6.3611093629270335e-15 -89.999999999999986 ;
+	setAttr -k on ".w0";
 createNode transform -n "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp";
 	rename -uid "6480F575-4A5F-5E09-6AD5-F7B4CB4F6C1B";
-	setAttr ".t" -type "double3" 42.484615325927749 96.454223632812514 0.031522884964949593 ;
-	setAttr ".r" -type "double3" -78.249547324489242 -69.365698172473572 -50.019383526484887 ;
 	setAttr ".rp" -type "double3" 0 -1.1102230246251565e-15 0 ;
 	setAttr ".sp" -type "double3" 0 -1.1102230246251565e-15 0 ;
 createNode transform -n "Takoto_L_Finger_01_Knuckle_01_Ctrl" -p "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp";
 	rename -uid "016E042E-4586-AC7C-9F14-9590A22CDBE0";
+	addAttr -ci true -sn "FollowTranslate" -ln "FollowTranslate" -dv 1 -min 0 -max 
+		1 -at "double";
+	addAttr -ci true -sn "FollowRotate" -ln "FollowRotate" -dv 1 -min 0 -max 1 -at "double";
 	setAttr ".ove" yes;
 	setAttr ".ovc" 14;
+	setAttr -k on ".FollowTranslate";
+	setAttr -k on ".FollowRotate";
 createNode nurbsCurve -n "Takoto_L_Finger_01_Knuckle_01_CtrlShape" -p "Takoto_L_Finger_01_Knuckle_01_Ctrl";
 	rename -uid "01BC1D04-4004-3E33-C721-E5B6C43EE49E";
 	setAttr -k off ".v";
@@ -12243,6 +12890,535 @@ createNode nurbsCurve -n "Takoto_L_Finger_01_Knuckle_01_CtrlShape" -p "Takoto_L_
 		-8.8817841970012523e-16 2.3791958742905792 -1.2434497875801753e-14 -5.8286708792820718e-16 
 		2.3791958742905792 -1.2434497875801753e-14 -8.8817841970012523e-16 2.3791958742905792 
 		-1.1435297153639112e-14 -4.4408920985006262e-16 0 0 0 0 0 0 0 0 0;
+createNode parentConstraint -n "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint1" 
+		-p "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp";
+	rename -uid "ED20114C-4C55-3F69-DCE2-07B774AF536D";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Hand_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 2.2042021408213222 0.74259032299676986 -0.48147134625908511 ;
+	setAttr ".tg[0].tor" -type "double3" 143.6108886695487 -15.666182956247756 74.393181791695511 ;
+	setAttr ".lr" -type "double3" -78.249547324489342 -69.365698172473572 -50.019383526484852 ;
+	setAttr ".rst" -type "double3" 42.484615325927756 96.454223632812514 0.03152288496495026 ;
+	setAttr ".rsrr" -type "double3" -78.249547324489342 -69.365698172473572 -50.019383526484852 ;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint2" 
+		-p "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp";
+	rename -uid "DE41B502-44E1-5A86-A0F8-369ED29144F1";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Hand_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 2.2042021408213293 0.7425903229967703 -0.48147134625908511 ;
+	setAttr ".tg[0].tor" -type "double3" 143.6108886695487 -15.666182956247756 74.393181791695511 ;
+	setAttr ".lr" -type "double3" -78.249547324489342 -69.365698172473572 -50.019383526484852 ;
+	setAttr ".rst" -type "double3" 42.484615325927763 96.454223632812514 0.031522884964950926 ;
+	setAttr ".rsrr" -type "double3" -78.249547324489342 -69.365698172473572 -50.019383526484852 ;
+	setAttr -k on ".w0";
+createNode transform -n "Takoto_L_Leg_01_Ctrl_Grp";
+	rename -uid "E25D42B6-481E-9C40-3E5D-468C85D9DABA";
+	setAttr ".t" -type "double3" 6.6242022514343279 59.816703796386719 0.14141869544981422 ;
+	setAttr ".r" -type "double3" -90 1.7604738436892731 -90 ;
+	setAttr ".rp" -type "double3" 0 -1.3322676295501878e-15 0 ;
+	setAttr ".sp" -type "double3" 0 -1.3322676295501878e-15 0 ;
+createNode transform -n "Takoto_L_Leg_01_Ctrl" -p "Takoto_L_Leg_01_Ctrl_Grp";
+	rename -uid "10A42B0F-41EA-B072-9BCE-EEB978B1CF52";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 13;
+createNode nurbsCurve -n "Takoto_L_Leg_01_CtrlShape" -p "Takoto_L_Leg_01_Ctrl";
+	rename -uid "4907582F-46E5-4B6F-4F7E-6AA892FC1F29";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_L_Leg_02_Ctrl_Grp";
+	rename -uid "4CA5CF7C-4596-C66A-F747-3784631630B6";
+	setAttr ".t" -type "double3" 6.6242022514343306 42.613174438476769 -0.38734447594351817 ;
+	setAttr ".r" -type "double3" -90 7.3327868099851568 -90 ;
+	setAttr ".s" -type "double3" 0.99999999999999989 0.99999999999999989 1 ;
+	setAttr ".rp" -type "double3" 0 -1.3322676295501878e-15 0 ;
+	setAttr ".sp" -type "double3" 0 -1.3322676295501878e-15 0 ;
+createNode transform -n "Takoto_L_Leg_02_Ctrl" -p "Takoto_L_Leg_02_Ctrl_Grp";
+	rename -uid "CCA12AF4-4BB8-BAA8-A0D3-B2B52E77164A";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 13;
+createNode nurbsCurve -n "Takoto_L_Leg_02_CtrlShape" -p "Takoto_L_Leg_02_Ctrl";
+	rename -uid "99F0FCD6-4B4D-C4A5-8EA7-DCA06CBAE269";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_L_Leg_03_Ctrl_Grp";
+	rename -uid "073BC5BF-4162-7B0E-1304-5596437D7325";
+	setAttr ".t" -type "double3" 6.6242022514343271 9.4793939590454119 -4.6511526107788486 ;
+	setAttr ".r" -type "double3" -90 0 -90 ;
+	setAttr ".s" -type "double3" 0.99999999999999989 0.99999999999999989 1 ;
+	setAttr ".rp" -type "double3" 0 -1.3322676295501878e-15 0 ;
+	setAttr ".sp" -type "double3" 0 -1.3322676295501878e-15 0 ;
+createNode transform -n "Takoto_L_Leg_03_Ctrl" -p "Takoto_L_Leg_03_Ctrl_Grp";
+	rename -uid "52BB6872-45A6-5E16-A2F1-06ADAEED6909";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 13;
+createNode nurbsCurve -n "Takoto_L_Leg_03_CtrlShape" -p "Takoto_L_Leg_03_Ctrl";
+	rename -uid "FF1922EC-4FDC-B729-AAA2-F8A63450532A";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_L_Foot_01_Ctrl_Grp";
+	rename -uid "923A9405-4ADD-2A93-F10E-DF975749F221";
+	setAttr ".t" -type "double3" 6.6242022514343217 9.4793939590454102 -4.6511526107788077 ;
+	setAttr ".r" -type "double3" -90 0 -90 ;
+	setAttr ".rp" -type "double3" 0 -2.2204460492503131e-15 0 ;
+	setAttr ".sp" -type "double3" 0 -2.2204460492503131e-15 0 ;
+createNode transform -n "Takoto_L_Foot_01_Ctrl" -p "Takoto_L_Foot_01_Ctrl_Grp";
+	rename -uid "E6113AEB-48A8-7863-C60D-ADB4415A8453";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+createNode nurbsCurve -n "Takoto_L_Foot_01_CtrlShape" -p "Takoto_L_Foot_01_Ctrl";
+	rename -uid "B002EC06-4EF2-7289-E4D8-C7A2F0D9E8AF";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_L_Foot_02_Ctrl_Grp";
+	rename -uid "10F244FC-4DCC-4CA7-4D34-17AFFD74A317";
+	setAttr ".t" -type "double3" 6.8790561654072668 3.0185124643250081 6.8846441636052988 ;
+	setAttr ".r" -type "double3" 180 -90 0 ;
+	setAttr ".rp" -type "double3" 0 -2.6645352591003757e-15 0 ;
+	setAttr ".sp" -type "double3" 0 -2.6645352591003757e-15 0 ;
+createNode transform -n "Takoto_L_Foot_02_Ctrl" -p "Takoto_L_Foot_02_Ctrl_Grp";
+	rename -uid "E170D3BF-4BCB-67CC-30BD-0DBDDC2BEFB0";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+createNode nurbsCurve -n "Takoto_L_Foot_02_CtrlShape" -p "Takoto_L_Foot_02_Ctrl";
+	rename -uid "601DC03F-4C71-3D0D-A97D-ED8FA5734DDB";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_Pelvis_Ctrl_Grp";
+	rename -uid "19823622-45B9-C9CC-39B6-1A824964E591";
+	setAttr ".t" -type "double3" 0 72.052398681640625 0.49823927879333502 ;
+	setAttr ".r" -type "double3" -90 0 -90 ;
+	setAttr ".rp" -type "double3" 0 -4.4408920985006262e-15 0 ;
+	setAttr ".sp" -type "double3" 0 -4.4408920985006262e-15 0 ;
+createNode transform -n "Takoto_Pelvis_Ctrl" -p "Takoto_Pelvis_Ctrl_Grp";
+	rename -uid "BD2AC277-4D66-F933-AE0D-76AAA2FB117A";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+createNode nurbsCurve -n "Takoto_Pelvis_CtrlShape" -p "Takoto_Pelvis_Ctrl";
+	rename -uid "F2B35671-40E4-E23B-A8F8-A6978216D836";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+	setAttr -s 11 ".cp[0:10]" -type "double3" 3.1851540439911048 0 0 3.1851540439911048 
+		0 0 3.1851540439911048 0 0 3.1851540439911048 0 0 3.1851540439911048 0 0 3.1851540439911048 
+		0 0 3.1851540439911048 0 0 3.1851540439911048 0 0 0 0 0 0 0 0 0 0 0;
+createNode transform -n "Takoto_R_Leg_01_Ctrl_Grp";
+	rename -uid "4DA759C8-4FC6-176B-2B31-E99F7ECBB221";
+	setAttr ".t" -type "double3" -6.6242 59.816700000000004 0.14141900000000002 ;
+	setAttr ".r" -type "double3" 90 -1.760473843689133 90 ;
+	setAttr ".rp" -type "double3" 0 -4.4408920985006262e-15 0 ;
+	setAttr ".sp" -type "double3" 0 -4.4408920985006262e-15 0 ;
+createNode transform -n "Takoto_R_Leg_01_Ctrl" -p "Takoto_R_Leg_01_Ctrl_Grp";
+	rename -uid "CB93508F-48EB-7E9E-7047-6FAAE41F7645";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 13;
+createNode nurbsCurve -n "Takoto_R_Leg_01_CtrlShape" -p "Takoto_R_Leg_01_Ctrl";
+	rename -uid "3DFCBB41-4A84-AF09-0B98-8985906D00EB";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_R_Leg_02_Ctrl_Grp";
+	rename -uid "E3DA341D-45F0-F311-6342-60BF3327A674";
+	setAttr ".t" -type "double3" -6.6241999999999992 42.613200000000006 -0.38734399999999974 ;
+	setAttr ".r" -type "double3" 90 -7.332786809985139 90 ;
+	setAttr ".rp" -type "double3" 0 -1.3322676295501878e-15 0 ;
+	setAttr ".sp" -type "double3" 0 -1.3322676295501878e-15 0 ;
+createNode transform -n "Takoto_R_Leg_02_Ctrl" -p "Takoto_R_Leg_02_Ctrl_Grp";
+	rename -uid "5ED3DCEA-41A1-AAAC-F727-A69156C0369C";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 13;
+createNode nurbsCurve -n "Takoto_R_Leg_02_CtrlShape" -p "Takoto_R_Leg_02_Ctrl";
+	rename -uid "36C643C7-4BA2-F0BC-D90E-22B651BF569C";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_R_Leg_03_Ctrl_Grp";
+	rename -uid "40E4BF3B-4187-D95A-6A68-7191249E8673";
+	setAttr ".t" -type "double3" -6.6241999999999983 9.4793899999999969 -4.6511500000000021 ;
+	setAttr ".r" -type "double3" 90 -2.5444437451708134e-14 90 ;
+	setAttr ".s" -type "double3" 0.99999999999999989 0.99999999999999989 1 ;
+	setAttr ".rp" -type "double3" 0 -2.2204460492503131e-15 0 ;
+	setAttr ".sp" -type "double3" 0 -2.2204460492503131e-15 0 ;
+createNode transform -n "Takoto_R_Leg_03_Ctrl" -p "Takoto_R_Leg_03_Ctrl_Grp";
+	rename -uid "1261E153-4B1E-9B0D-ADFF-CFB73E8ED081";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 13;
+createNode nurbsCurve -n "Takoto_R_Leg_03_CtrlShape" -p "Takoto_R_Leg_03_Ctrl";
+	rename -uid "686C9872-4420-DA70-9DB5-7BAAC9DC9658";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_R_Foot_01_Ctrl_Grp";
+	rename -uid "1C41D1DD-4123-6D3B-EA68-2A8AC3B9FF78";
+	setAttr ".t" -type "double3" -6.6242 9.4793900000000022 -4.65115 ;
+	setAttr ".r" -type "double3" 90 0 90 ;
+	setAttr ".rp" -type "double3" 0 -2.6645352591003757e-15 0 ;
+	setAttr ".sp" -type "double3" 0 -2.6645352591003757e-15 0 ;
+createNode transform -n "Takoto_R_Foot_01_Ctrl" -p "Takoto_R_Foot_01_Ctrl_Grp";
+	rename -uid "21912117-42C4-FA5B-BF7C-71BB58F3B032";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+createNode nurbsCurve -n "Takoto_R_Foot_01_CtrlShape" -p "Takoto_R_Foot_01_Ctrl";
+	rename -uid "07000D27-4CED-5665-C0C2-E6B418BF778F";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_R_Foot_02_Ctrl_Grp";
+	rename -uid "0B301DB7-4B64-3A5F-D2A4-B780FCB0CD3B";
+	setAttr ".t" -type "double3" -6.87906 3.0185124643250187 6.8846400000000072 ;
+	setAttr ".r" -type "double3" 0 90 0 ;
+	setAttr ".rp" -type "double3" 0 -2.6645352591003757e-15 0 ;
+	setAttr ".sp" -type "double3" 0 -2.6645352591003757e-15 0 ;
+createNode transform -n "Takoto_R_Foot_02_Ctrl" -p "Takoto_R_Foot_02_Ctrl_Grp";
+	rename -uid "57DAFF84-4A13-AEDE-73A4-9D8DDE2793EF";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+createNode nurbsCurve -n "Takoto_R_Foot_02_CtrlShape" -p "Takoto_R_Foot_02_Ctrl";
+	rename -uid "F759101C-4BBB-7077-ED32-F08FEE5E4377";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_R_Arm_01_Ctrl_Grp";
+	rename -uid "B69AC886-4B33-DC66-185D-858EDB6B104D";
+	setAttr ".t" -type "double3" -9.3176 95.9728 -1.1249 ;
+	setAttr ".r" -type "double3" -89.999999999997527 -0.58740108568686056 -1.2722887340840942e-14 ;
+	setAttr ".rp" -type "double3" 0 -1.7763568394002505e-15 0 ;
+	setAttr ".sp" -type "double3" 0 -1.7763568394002505e-15 0 ;
+createNode transform -n "Takoto_R_Arm_01_Ctrl" -p "Takoto_R_Arm_01_Ctrl_Grp";
+	rename -uid "9243CB2A-47CC-8716-34A8-2A9BFDF2FB95";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 13;
+createNode nurbsCurve -n "Takoto_R_Arm_01_CtrlShape" -p "Takoto_R_Arm_01_Ctrl";
+	rename -uid "B9D3E545-4A8E-C85A-7E63-F8B07AC6EA7F";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_R_Arm_01_jnt1_Takoto_R_Arm_02_Ctrl_Grp";
+	rename -uid "C9D1EF52-48FE-C358-FC83-48BABBEA68CC";
+	setAttr ".t" -type "double3" -25.841600000000007 95.972799999999978 -1.29431 ;
+	setAttr ".r" -type "double3" -89.999999999997513 2.0055079305313281 1.1238217492829399e-13 ;
+	setAttr ".rp" -type "double3" 0 -1.3322676295501878e-15 0 ;
+	setAttr ".sp" -type "double3" 0 -1.3322676295501878e-15 0 ;
+createNode transform -n "Takoto_R_Arm_01_jnt1_Takoto_R_Arm_02_Ctrl" -p "Takoto_R_Arm_01_jnt1_Takoto_R_Arm_02_Ctrl_Grp";
+	rename -uid "0166B3D8-4612-58A9-0096-F6840E93B24D";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 13;
+createNode nurbsCurve -n "Takoto_R_Arm_01_jnt1_Takoto_R_Arm_02_CtrlShape" -p "Takoto_R_Arm_01_jnt1_Takoto_R_Arm_02_Ctrl";
+	rename -uid "6D5505BD-4195-0420-CF55-89AAB39279DD";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_R_Arm_01_jnt1_Takoto_R_Arm_02_jnt_Takoto_R_Arm_03_Ctrl_Grp";
+	rename -uid "525F83CD-4C3E-8B29-51A6-75B286E4C8B2";
+	setAttr ".t" -type "double3" -40.3078 95.972800000000021 -0.78775 ;
+	setAttr ".r" -type "double3" -89.999999999997527 2.0055079305313281 0 ;
+	setAttr ".rp" -type "double3" 0 -1.3322676295501878e-15 0 ;
+	setAttr ".sp" -type "double3" 0 -1.3322676295501878e-15 0 ;
+createNode transform -n "Takoto_R_Arm_01_jnt1_Takoto_R_Arm_02_jnt_Takoto_R_Arm_03_Ctrl" 
+		-p "Takoto_R_Arm_01_jnt1_Takoto_R_Arm_02_jnt_Takoto_R_Arm_03_Ctrl_Grp";
+	rename -uid "6A5DC1DA-4B3A-14E2-FAEC-5B9BB87150A7";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 13;
+createNode nurbsCurve -n "Takoto_R_Arm_01_jnt1_Takoto_R_Arm_02_jnt_Takoto_R_Arm_03_CtrlShape" 
+		-p "Takoto_R_Arm_01_jnt1_Takoto_R_Arm_02_jnt_Takoto_R_Arm_03_Ctrl";
+	rename -uid "D738D663-47B3-D33F-FFFB-31A8315674D4";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_L_Hand_Ctrl_Grp";
+	rename -uid "33DA3D23-4E39-2D04-CB67-C68BE4DA274E";
+	setAttr ".rp" -type "double3" 0 -2.2204460492503131e-15 0 ;
+	setAttr ".sp" -type "double3" 0 -2.2204460492503131e-15 0 ;
+createNode transform -n "Takoto_L_Hand_Ctrl" -p "Takoto_L_Hand_Ctrl_Grp";
+	rename -uid "9E2F3C44-4F62-7E60-3F30-A7823691BDD2";
+	addAttr -ci true -sn "FollowTranslate" -ln "FollowTranslate" -dv 1 -min 0 -max 
+		1 -at "double";
+	addAttr -ci true -sn "FollowRotate" -ln "FollowRotate" -dv 1 -min 0 -max 1 -at "double";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+	setAttr -k on ".FollowTranslate";
+	setAttr -k on ".FollowRotate";
+createNode nurbsCurve -n "Takoto_L_Hand_CtrlShape" -p "Takoto_L_Hand_Ctrl";
+	rename -uid "8E7BEAB6-42A2-F6D4-58A7-E28F897412E4";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode parentConstraint -n "Takoto_L_Hand_Ctrl_Grp_parentConstraint1" -p "Takoto_L_Hand_Ctrl_Grp";
+	rename -uid "7250F3B1-44E7-D6A6-DE61-A482F17B0937";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Arm_03_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0 -1.3322676295501878e-15 -3.094607207830291e-32 ;
+	setAttr ".tg[0].tor" -type "double3" 0 -8.8278125961003172e-32 -3.975693351829396e-16 ;
+	setAttr ".lr" -type "double3" 90.000000000000014 -2.0055079305313281 0 ;
+	setAttr ".rst" -type "double3" 40.307750701904254 95.97275228655343 -0.78774988651276123 ;
+	setAttr ".rsrr" -type "double3" 90.000000000000014 -2.0055079305313281 0 ;
+	setAttr -k on ".w0";
+createNode parentConstraint -n "Takoto_L_Hand_Ctrl_Grp_parentConstraint2" -p "Takoto_L_Hand_Ctrl_Grp";
+	rename -uid "7448C325-440F-21BA-5B80-658FB2C2DD88";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Takoto_L_Arm_03_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0 -1.7763568394002505e-15 -3.094607207830291e-32 ;
+	setAttr ".tg[0].tor" -type "double3" 0 -8.8278125961003172e-32 -3.975693351829396e-16 ;
+	setAttr ".lr" -type "double3" 90.000000000000014 -2.0055079305313286 0 ;
+	setAttr ".rst" -type "double3" 40.307750701904254 95.97275228655343 -0.78774988651276168 ;
+	setAttr ".rsrr" -type "double3" 90.000000000000014 -2.0055079305313281 0 ;
+	setAttr -k on ".w0";
+createNode transform -n "Takoto_R_Hand_Ctrl_Grp";
+	rename -uid "903C2BA8-47BC-0089-3CEB-969E68F4B201";
+	setAttr ".t" -type "double3" -40.307799999999993 95.972800000000021 -0.78775 ;
+	setAttr ".r" -type "double3" -89.999999999997527 2.0055079305313281 0 ;
+	setAttr ".rp" -type "double3" 0 -2.2204460492503131e-15 0 ;
+	setAttr ".sp" -type "double3" 0 -2.2204460492503131e-15 0 ;
+createNode transform -n "Takoto_R_Hand_Ctrl" -p "Takoto_R_Hand_Ctrl_Grp";
+	rename -uid "7776DB10-4FEE-440F-1773-839BCF0B553D";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+createNode nurbsCurve -n "Takoto_R_Hand_CtrlShape" -p "Takoto_R_Hand_Ctrl";
+	rename -uid "25B8B891-4413-7655-274A-53B6444D95FF";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_R_Finger_05_Knuckle_01_Ctrl_Grp";
+	rename -uid "6A6934DE-4021-DE1B-53CE-A7B6CCA4F0A7";
+	setAttr ".t" -type "double3" -48.8925 95.493000000000023 -4.3960899999999992 ;
+	setAttr ".r" -type "double3" -2.1035546128407032e-12 -1.4367289430297427 26.414621916479096 ;
+	setAttr ".rp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+	setAttr ".sp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+createNode transform -n "Takoto_R_Finger_05_Knuckle_01_Ctrl" -p "Takoto_R_Finger_05_Knuckle_01_Ctrl_Grp";
+	rename -uid "245534EE-4E73-8CE8-5D4E-EBB5476EB9F1";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+createNode nurbsCurve -n "Takoto_R_Finger_05_Knuckle_01_CtrlShape" -p "Takoto_R_Finger_05_Knuckle_01_Ctrl";
+	rename -uid "C223C5C3-46FE-34F0-CD46-B282287232EA";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_R_Finger_05_Knuckle_02_Ctrl_Grp";
+	rename -uid "4DC71546-49E5-DDFB-DD04-BBA7946D7DD7";
+	setAttr ".t" -type "double3" -51.024700000000017 94.433800000000019 -4.4557999999999991 ;
+	setAttr ".r" -type "double3" -1.9778996348137621e-12 3.4431361943231087 43.185548258751894 ;
+	setAttr ".rp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+	setAttr ".sp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+createNode transform -n "Takoto_R_Finger_05_Knuckle_02_Ctrl" -p "Takoto_R_Finger_05_Knuckle_02_Ctrl_Grp";
+	rename -uid "A5233246-43C2-059A-8672-A4A12CA58515";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+createNode nurbsCurve -n "Takoto_R_Finger_05_Knuckle_02_CtrlShape" -p "Takoto_R_Finger_05_Knuckle_02_Ctrl";
+	rename -uid "6D58EBF4-4045-269C-B501-07A693087F0A";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_R_Finger_04_Knuckle_01_Ctrl_Grp";
+	rename -uid "DE5D5158-4B17-1352-C047-1BBC45591EB6";
+	setAttr ".t" -type "double3" -48.932099999999991 96.304600000000008 -2.2268499999999998 ;
+	setAttr ".r" -type "double3" -2.3099256849163651e-12 -0.4918750796778773 19.833081483279692 ;
+	setAttr ".rp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+	setAttr ".sp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+createNode transform -n "Takoto_R_Finger_04_Knuckle_01_Ctrl" -p "Takoto_R_Finger_04_Knuckle_01_Ctrl_Grp";
+	rename -uid "26D379A3-437C-443D-D2EF-6D833ECFEB47";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+createNode nurbsCurve -n "Takoto_R_Finger_04_Knuckle_01_CtrlShape" -p "Takoto_R_Finger_04_Knuckle_01_Ctrl";
+	rename -uid "E044474E-4E3A-010D-38DE-358A5E185080";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_R_Finger_04_Knuckle_02_Ctrl_Grp";
+	rename -uid "7DEC4E2E-4BEA-736E-5D4F-DB9A09F39BA6";
+	setAttr ".t" -type "double3" -51.7975 95.271200000000007 -2.2529999999999997 ;
+	setAttr ".r" -type "double3" 1.7035618556334606e-12 3.4891425916798431 37.602179820049194 ;
+	setAttr ".s" -type "double3" 0.99999999999999989 1 1 ;
+	setAttr ".rp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+	setAttr ".sp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+createNode transform -n "Takoto_R_Finger_04_Knuckle_02_Ctrl" -p "Takoto_R_Finger_04_Knuckle_02_Ctrl_Grp";
+	rename -uid "6BBA2057-4DBB-FD5A-A491-7591247299A9";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+createNode nurbsCurve -n "Takoto_R_Finger_04_Knuckle_02_CtrlShape" -p "Takoto_R_Finger_04_Knuckle_02_Ctrl";
+	rename -uid "612FB8A1-43D0-87DE-8FEE-C7B731B3FC09";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_R_Finger_01_Knuckle_02_Ctrl_Grp";
+	rename -uid "5AE44280-40B0-27CB-313E-7D950E9A72F4";
+	setAttr ".t" -type "double3" -43.2353 95.55900000000004 3.1341800000000006 ;
+	setAttr ".r" -type "double3" 118.7524797305627 21.675562786913499 56.052827264472114 ;
+	setAttr ".s" -type "double3" 1 1 1.0000000000000002 ;
+	setAttr ".rp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+	setAttr ".sp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+createNode transform -n "Takoto_R_Finger_01_Knuckle_02_Ctrl" -p "Takoto_R_Finger_01_Knuckle_02_Ctrl_Grp";
+	rename -uid "FF1C49DD-46AE-3715-42D5-2E87EA318E85";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+createNode nurbsCurve -n "Takoto_R_Finger_01_Knuckle_02_CtrlShape" -p "Takoto_R_Finger_01_Knuckle_02_Ctrl";
+	rename -uid "7344C0D1-4765-3163-0F23-C19440415587";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_R_Finger_01_Knuckle_03_Ctrl_Grp";
+	rename -uid "DE913A42-403F-E50E-8091-4BA913FB857F";
+	setAttr ".t" -type "double3" -44.671100000000017 93.426100000000048 4.1560900000000132 ;
+	setAttr ".r" -type "double3" 103.83652508735375 20.844423526610047 34.690212768788257 ;
+	setAttr ".s" -type "double3" 1.0000000000000002 1.0000000000000002 1.0000000000000002 ;
+	setAttr ".rp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+	setAttr ".sp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+createNode transform -n "Takoto_R_Finger_01_Knuckle_03_Ctrl" -p "Takoto_R_Finger_01_Knuckle_03_Ctrl_Grp";
+	rename -uid "2DF288AC-46BC-C18C-A962-EBB46D6A8023";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+createNode nurbsCurve -n "Takoto_R_Finger_01_Knuckle_03_CtrlShape" -p "Takoto_R_Finger_01_Knuckle_03_Ctrl";
+	rename -uid "F605C876-4ABA-68D0-8154-D7BED239F1D3";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_R_Finger_02_Knuckle_01_Ctrl_Grp";
+	rename -uid "0DA609D9-4FF2-18F8-DFB8-52B55A649E0A";
+	setAttr ".t" -type "double3" -48.6513 96.173300000000012 2.3794999999999993 ;
+	setAttr ".r" -type "double3" -4.0810173668020864e-15 3.0895478515094643 20.144539111531813 ;
+	setAttr ".rp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+	setAttr ".sp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+createNode transform -n "Takoto_R_Finger_02_Knuckle_01_Ctrl" -p "Takoto_R_Finger_02_Knuckle_01_Ctrl_Grp";
+	rename -uid "198E3B22-4F41-2A88-B819-FA83679E780F";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+createNode nurbsCurve -n "Takoto_R_Finger_02_Knuckle_01_CtrlShape" -p "Takoto_R_Finger_02_Knuckle_01_Ctrl";
+	rename -uid "B47B357A-40A7-F398-9BA1-709B1EF0458E";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_R_Finger_02_Knuckle_02_Ctrl_Grp";
+	rename -uid "184C5955-4EB1-B716-81FE-CAA514137397";
+	setAttr ".t" -type "double3" -51.5543 95.108400000000032 2.5463999999999998 ;
+	setAttr ".r" -type "double3" -6.3301356076107014e-13 -1.7101883206607746 42.928208796783181 ;
+	setAttr ".rp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+	setAttr ".sp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+createNode transform -n "Takoto_R_Finger_02_Knuckle_02_Ctrl" -p "Takoto_R_Finger_02_Knuckle_02_Ctrl_Grp";
+	rename -uid "DFC50202-478C-F73C-4228-B58F92E71568";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+createNode nurbsCurve -n "Takoto_R_Finger_02_Knuckle_02_CtrlShape" -p "Takoto_R_Finger_02_Knuckle_02_Ctrl";
+	rename -uid "8CD7C8AF-4450-24D0-AFD3-81B8851BB12C";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_R_Finger_03_Knuckle_01_Ctrl_Grp";
+	rename -uid "7938B5E7-4F62-8551-8ABF-BF9A9EC73394";
+	setAttr ".t" -type "double3" -48.948999999999984 96.62360000000001 0.047949999999999604 ;
+	setAttr ".r" -type "double3" -2.6170549438342634e-14 1.1765560818168055 19.097415791128974 ;
+	setAttr ".rp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+	setAttr ".sp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+createNode transform -n "Takoto_R_Finger_03_Knuckle_01_Ctrl" -p "Takoto_R_Finger_03_Knuckle_01_Ctrl_Grp";
+	rename -uid "94F63B89-47FB-4721-E13C-889EA9F76C25";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+createNode nurbsCurve -n "Takoto_R_Finger_03_Knuckle_01_CtrlShape" -p "Takoto_R_Finger_03_Knuckle_01_Ctrl";
+	rename -uid "BBB42E91-40AB-CDF0-2BF2-08BFD5E77BC2";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_R_Finger_03_Knuckle_02_Ctrl_Grp";
+	rename -uid "E37B0CC4-4C49-9B4E-DA0F-3D9D0AB978EB";
+	setAttr ".t" -type "double3" -52.061599999999991 95.545900000000017 0.11559999999999973 ;
+	setAttr ".r" -type "double3" 6.0637407099918028e-12 -2.3914266799930304 34.405076656788303 ;
+	setAttr ".s" -type "double3" 0.99999999999999989 0.99999999999999989 0.99999999999999989 ;
+	setAttr ".rp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+	setAttr ".sp" -type "double3" 0 -6.6613381477509392e-16 0 ;
+createNode transform -n "Takoto_R_Finger_03_Knuckle_02_Ctrl" -p "Takoto_R_Finger_03_Knuckle_02_Ctrl_Grp";
+	rename -uid "E345881B-48A9-3CF7-FCE0-C2B77C023EDC";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+createNode nurbsCurve -n "Takoto_R_Finger_03_Knuckle_02_CtrlShape" -p "Takoto_R_Finger_03_Knuckle_02_Ctrl";
+	rename -uid "BD4B7CE8-4F5F-BB09-67A1-C181E2EF7584";
+	setAttr -k off ".v";
+	setAttr ".tw" yes;
+createNode transform -n "Takoto_R_Finger_01_Knuckle_01_Ctrl_Grp";
+	rename -uid "8E35F742-481A-D14D-6EB1-3EA0A370B64F";
+	setAttr ".t" -type "double3" -42.484599999999986 96.454200000000014 0.031522899999999465 ;
+	setAttr ".r" -type "double3" 138.13956400596203 69.365698172473557 50.019383526484724 ;
+	setAttr ".rp" -type "double3" 0 -1.1102230246251565e-15 0 ;
+	setAttr ".sp" -type "double3" 0 -1.1102230246251565e-15 0 ;
+createNode transform -n "Takoto_R_Finger_01_Knuckle_01_Ctrl" -p "Takoto_R_Finger_01_Knuckle_01_Ctrl_Grp";
+	rename -uid "ABF4C72D-4056-DF72-C761-8F90E157CF07";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+	setAttr ".rp" -type "double3" 7.1054273576010019e-15 0 0 ;
+	setAttr ".sp" -type "double3" 7.1054273576010019e-15 0 0 ;
+createNode nurbsCurve -n "Takoto_R_Finger_01_Knuckle_01_CtrlShape" -p "Takoto_R_Finger_01_Knuckle_01_Ctrl";
+	rename -uid "DF92F7E3-4AD3-1825-1B58-8683B64D3E83";
+	setAttr -k off ".v";
+	setAttr ".cc" -type "nurbsCurve" 
+		3 8 2 no 3
+		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
+		11
+		-2.3791958742905792 2.3508348746736614 -2.3508348746736742
+		-2.3791958742905792 3.3245825626631511 -7.8643905762153456e-16
+		-2.3791958742905792 2.3508348746736605 2.3508348746736725
+		-2.3791958742905792 -1.1262950206513367e-14 3.324582562663164
+		-2.3791958742905792 -2.3508348746736853 2.3508348746736725
+		-2.3791958742905792 -3.3245825626631778 -2.4984137884011043e-16
+		-2.3791958742905792 -2.3508348746736853 -2.3508348746736742
+		-2.3791958742905792 -1.18886693038731e-14 -3.3245825626631649
+		-2.3791958742905792 2.3508348746736614 -2.3508348746736742
+		-2.3791958742905792 3.3245825626631511 -7.8643905762153456e-16
+		-2.3791958742905792 2.3508348746736605 2.3508348746736725
+		;
+createNode transform -n "Takoto_R_Palm_Ctrl_Grp";
+	rename -uid "343947CB-499B-EDC4-02E7-85997A1293E0";
+	setAttr ".t" -type "double3" -43.2644 96.038100000000014 -2.5101299999999993 ;
+	setAttr ".r" -type "double3" -90.000000000000384 -2.3885965657791012e-12 89.999999999997442 ;
+	setAttr ".rp" -type "double3" 0 -1.1102230246251565e-15 0 ;
+	setAttr ".sp" -type "double3" 0 -1.1102230246251565e-15 0 ;
+createNode transform -n "Takoto_R_Palm_Ctrl" -p "Takoto_R_Palm_Ctrl_Grp";
+	rename -uid "7DFD0E20-4E0C-2159-9C10-2B92E3AE5284";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 14;
+createNode nurbsCurve -n "Takoto_R_Palm_CtrlShape" -p "Takoto_R_Palm_Ctrl";
+	rename -uid "02097F70-4FC7-3F55-2DAE-C68476CFB0A0";
+	setAttr -k off ".v";
+	setAttr ".cc" -type "nurbsCurve" 
+		3 8 2 no 3
+		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
+		11
+		-3.2957379837753971 1.5672232497824494 -1.5672232497824352
+		-3.2957379837753962 2.2163883751087758 1.4081976612607577e-14
+		-3.2957379837753953 1.567223249782449 1.5672232497824636
+		-3.2957379837753962 1.6839772787681719e-16 2.2163883751087905
+		-3.2957379837753953 -1.5672232497824488 1.5672232497824636
+		-3.2957379837753962 -2.2163883751087763 1.4439708398461855e-14
+		-3.2957379837753971 -1.5672232497824485 -1.5672232497824352
+		-3.2957379837753962 -2.4874833702967122e-16 -2.2163883751087625
+		-3.2957379837753971 1.5672232497824494 -1.5672232497824352
+		-3.2957379837753962 2.2163883751087758 1.4081976612607577e-14
+		-3.2957379837753953 1.567223249782449 1.5672232497824636
+		;
 createNode layeredTexture -n "DiffuseColor";
 	rename -uid "7533C8F7-4CFD-2C59-717E-0C9910748B46";
 	setAttr ".cs[0].a" 1;
@@ -12266,22 +13442,22 @@ createNode file -n "diss_00FBXASC046png";
 createNode place2dTexture -n "place2dTexture2";
 	rename -uid "AA470BE4-48AC-61C7-FE19-94AADF75E09B";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "8CF60E9B-4DF9-67EB-B86D-459C672014CA";
+	rename -uid "E40FB141-43CF-8742-201B-988D21575411";
 	setAttr -s 12 ".lnk";
 	setAttr -s 12 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "99DA435A-4286-B0A8-53A8-9EBFBBA35753";
+	rename -uid "46987E76-4E4B-EDE4-3CAE-A8B3BE91CA4B";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "FB442E12-46C8-DB63-3F3E-C69115C3AC58";
+	rename -uid "2B88A15E-4AC9-A113-E230-3C9F9FD3F37E";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "A66AC6A6-4A3D-BFF9-40FA-8492DD87A7F6";
+	rename -uid "02008B41-49EA-ED84-ED95-A3AF69E23AD1";
 	setAttr ".cdl" 1;
 	setAttr -s 2 ".dli[1]"  1;
 	setAttr -s 2 ".dli";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "CB9A6060-4ABD-2E2E-8B10-E0B529B6F8B3";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "09E778E9-46D5-881A-1A8B-6FBB708E7F49";
+	rename -uid "298E1AC9-47BE-4709-29BD-0AA3AA987E03";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "37BF4F9D-4EA4-AC72-DE45-9AA08D777F7E";
 	setAttr ".g" yes;
@@ -12297,17 +13473,17 @@ createNode script -n "uiConfigurationScriptNode";
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $nodeEditorPanelVisible = stringArrayContains(\"nodeEditorPanel1\", `getPanel -vis`);\n\tint    $nodeEditorWorkspaceControlOpen = (`workspaceControl -exists nodeEditorPanel1Window` && `workspaceControl -q -visible nodeEditorPanel1Window`);\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\n\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
 		+ "            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n"
-		+ "            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
+		+ "            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 498\n            -height 332\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
 		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n"
 		+ "            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n"
-		+ "            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n"
+		+ "            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 497\n            -height 332\n"
 		+ "            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n"
 		+ "            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n"
 		+ "            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n"
-		+ "            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n"
+		+ "            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 498\n            -height 332\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"wireframe\" \n            -activeOnly 0\n            -ignorePanZoom 0\n"
 		+ "            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 1\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n"
 		+ "            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n"
-		+ "            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1119\n            -height 708\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1002\n            -height 708\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n"
 		+ "            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n"
 		+ "            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n"
@@ -12334,8 +13510,8 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n"
 		+ "                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n"
 		+ "\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1119\\n    -height 708\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1119\\n    -height 708\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"wireframe\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1002\\n    -height 708\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"wireframe\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 1\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1002\\n    -height 708\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -12518,7 +13694,7 @@ createNode nodeGraphEditorInfo -n "MayaNodeEditorSavedTabsInfo";
 createNode makeNurbCircle -n "makeNurbCircle1";
 	rename -uid "14E8CFF2-4778-256E-D843-858DA43F500B";
 	setAttr ".nr" -type "double3" 1 0 0 ;
-	setAttr ".r" 14;
+	setAttr ".r" 12;
 createNode makeNurbCircle -n "makeNurbCircle2";
 	rename -uid "E094ACB8-4572-FC7D-FC76-1B9C26249C65";
 	setAttr ".nr" -type "double3" 1 0 0 ;
@@ -12541,10 +13717,6 @@ createNode makeNurbCircle -n "makeNurbCircle6";
 	setAttr ".r" 4;
 createNode makeNurbCircle -n "makeNurbCircle7";
 	rename -uid "5C640C2D-4FA1-6C1C-9B30-AD9833696CEC";
-	setAttr ".nr" -type "double3" 1 0 0 ;
-	setAttr ".r" 4;
-createNode makeNurbCircle -n "makeNurbCircle8";
-	rename -uid "9AB033EE-4557-9234-5158-4384CCCB3C6E";
 	setAttr ".nr" -type "double3" 1 0 0 ;
 	setAttr ".r" 4;
 createNode makeNurbCircle -n "makeNurbCircle10";
@@ -12595,6 +13767,110 @@ createNode makeNurbCircle -n "makeNurbCircle22";
 	rename -uid "A5389CEC-4D58-1B1B-D30A-A694AF854F7E";
 	setAttr ".nr" -type "double3" 1 0 0 ;
 	setAttr ".r" 3;
+createNode makeNurbCircle -n "makeNurbCircle28";
+	rename -uid "78E30F19-45F1-C961-5CE7-EEBCF031EBCB";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 13;
+createNode makeNurbCircle -n "makeNurbCircle34";
+	rename -uid "F3D9EE33-4603-C1C2-CB2F-6D8EFC6F3613";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 5;
+createNode makeNurbCircle -n "makeNurbCircle35";
+	rename -uid "9CE126F6-4CBA-EF37-869B-F2B1109A0FBF";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 4;
+createNode makeNurbCircle -n "makeNurbCircle36";
+	rename -uid "C76B9B1B-4EB7-44B5-E6E8-789A0A8CB9C7";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 4;
+createNode makeNurbCircle -n "makeNurbCircle37";
+	rename -uid "CE69F5BA-41B2-3945-23D3-CBBC2A8C271D";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 6;
+createNode makeNurbCircle -n "makeNurbCircle38";
+	rename -uid "A23F1FE5-45B1-8DF3-9B9E-11AE3DEA65D1";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 6;
+createNode makeNurbCircle -n "makeNurbCircle40";
+	rename -uid "2ED09320-493C-6329-052E-7699F2D43263";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 2;
+createNode makeNurbCircle -n "makeNurbCircle41";
+	rename -uid "9CF1EBA2-4DBF-B9C6-7533-F9ADCC16BC70";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 2;
+createNode makeNurbCircle -n "makeNurbCircle42";
+	rename -uid "F9A70FF8-470F-3898-549D-2B9E3372DB1E";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 2;
+createNode makeNurbCircle -n "makeNurbCircle43";
+	rename -uid "09CE7150-46D5-6DE4-0ABA-EFB0DF2BC5C0";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 2;
+createNode makeNurbCircle -n "makeNurbCircle45";
+	rename -uid "51149010-42EE-C975-328F-38B548DBC276";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 2;
+createNode makeNurbCircle -n "makeNurbCircle46";
+	rename -uid "C73C224D-446D-D889-0494-BBAEDB18F23A";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 2;
+createNode makeNurbCircle -n "makeNurbCircle47";
+	rename -uid "23B6D583-4AD3-E3B3-60B2-1C99EC7B2FED";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 2;
+createNode makeNurbCircle -n "makeNurbCircle48";
+	rename -uid "1AC4C2C2-44DC-1696-8342-6BAB2A4B19B8";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 2;
+createNode makeNurbCircle -n "makeNurbCircle49";
+	rename -uid "0C92243F-481B-44C9-EA2B-E99271D34C4D";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 2;
+createNode makeNurbCircle -n "makeNurbCircle50";
+	rename -uid "9F0D846E-4CBB-4CB7-C242-3DAB04C047F0";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 2;
+createNode makeNurbCircle -n "makeNurbCircle29";
+	rename -uid "1E26992C-40FC-98FA-B16E-52A6F16A2CCF";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 7;
+createNode makeNurbCircle -n "makeNurbCircle30";
+	rename -uid "744CDF73-4D84-0941-4C9E-6C91F5406543";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 5;
+createNode makeNurbCircle -n "makeNurbCircle23";
+	rename -uid "1D95454B-4376-FA09-3AC0-7285BADF0007";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 7;
+createNode makeNurbCircle -n "makeNurbCircle24";
+	rename -uid "0CE5C99F-4567-DF2B-5222-8D832A3EDE32";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 5;
+createNode makeNurbCircle -n "makeNurbCircle31";
+	rename -uid "0E0BF623-4F78-7C45-D227-09A1A8CBEA25";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 7;
+createNode makeNurbCircle -n "makeNurbCircle33";
+	rename -uid "7033FA00-47CE-1945-9269-4A86F78103CE";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 7;
+createNode makeNurbCircle -n "makeNurbCircle32";
+	rename -uid "6094442D-452E-9682-8A61-03AD1750FA34";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 8;
+createNode makeNurbCircle -n "makeNurbCircle26";
+	rename -uid "A607B107-42BD-0502-266A-FDA77E103C80";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 8;
+createNode makeNurbCircle -n "makeNurbCircle27";
+	rename -uid "598F0B9F-4A23-3F55-BF6F-C8BCED6C6287";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 7;
+createNode makeNurbCircle -n "makeNurbCircle25";
+	rename -uid "D974CC1D-4CCD-62EB-73CB-EF855EBF1D27";
+	setAttr ".nr" -type "double3" 1 0 0 ;
+	setAttr ".r" 7;
 select -ne :time1;
 	setAttr ".o" 0;
 select -ne :hardwareRenderingGlobals;
@@ -12656,14 +13932,17 @@ connectAttr "Takoto_L_Leg_02_jnt.s" "Takoto_L_Leg_03_jnt.is";
 connectAttr "Takoto_Pelvis_Jnt.s" "Takoto_R_Leg_01_jnt.is";
 connectAttr "Takoto_R_Leg_01_jnt.s" "Takoto_R_Leg_02_jnt.is";
 connectAttr "Takoto_R_Leg_02_jnt.s" "Takoto_R_Leg_03_jnt.is";
+connectAttr "Takoto_Pelvis_Jnt.s" "Takoto_L_Leg_Clavicle.is";
 connectAttr "Takoto_COG_jnt.s" "Takoto_Torso_01_jnt.is";
 connectAttr "Takoto_Torso_01_jnt.s" "Takoto_Torso_02_jnt.is";
 connectAttr "Takoto_Torso_02_jnt.s" "Takoto_Neck_jnt.is";
 connectAttr "Takoto_Neck_jnt.s" "Takoto_Head_jnt.is";
-connectAttr "Takoto_Torso_02_jnt.s" "Takoto_L_Arm_01_jnt.is";
+connectAttr "Takoto_Torso_02_jnt.s" "Takoto_L_Clavicle_jnt.is";
+connectAttr "Takoto_L_Clavicle_jnt.s" "Takoto_L_Arm_01_jnt.is";
 connectAttr "Takoto_L_Arm_01_jnt.s" "Takoto_L_Arm_02_jnt.is";
 connectAttr "Takoto_L_Arm_02_jnt.s" "Takoto_L_Arm_03_jnt.is";
-connectAttr "Takoto_Torso_02_jnt.s" "Takoto_R_Arm_01_jnt.is";
+connectAttr "Takoto_Torso_02_jnt.s" "Takoto_R_Clavicle_jnt.is";
+connectAttr "Takoto_R_Clavicle_jnt.s" "Takoto_R_Arm_01_jnt.is";
 connectAttr "Takoto_R_Arm_01_jnt.s" "Takoto_R_Arm_02_jnt.is";
 connectAttr "Takoto_R_Arm_02_jnt.s" "Takoto_R_Arm_03_jnt.is";
 connectAttr "Takoto_L_Hand_jnt.s" "Takoto_L_Palm_Jnt.is";
@@ -12709,21 +13988,1008 @@ connectAttr "makeNurbCircle2.oc" "Takoto_Torso_02_CtrlShape.cr";
 connectAttr "makeNurbCircle3.oc" "Takoto_Neck_CtrlShape.cr";
 connectAttr "makeNurbCircle4.oc" "Takoto_Head_CtrlShape.cr";
 connectAttr "makeNurbCircle5.oc" "Takoto_L_Arm_01_CtrlShape.cr";
+connectAttr "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint1.ctx" "Takoto_L_Arm_02_Ctrl_Grp.tx"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint1.cty" "Takoto_L_Arm_02_Ctrl_Grp.ty"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint1.ctz" "Takoto_L_Arm_02_Ctrl_Grp.tz"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint2.crx" "Takoto_L_Arm_02_Ctrl_Grp.rx"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint2.cry" "Takoto_L_Arm_02_Ctrl_Grp.ry"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint2.crz" "Takoto_L_Arm_02_Ctrl_Grp.rz"
+		;
 connectAttr "makeNurbCircle6.oc" "Takoto_L_Arm_02_CtrlShape.cr";
+connectAttr "Takoto_L_Arm_02_Ctrl_Grp.ro" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint1.cro"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl_Grp.pim" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint1.cpim"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl_Grp.rp" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint1.crp"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl_Grp.rpt" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint1.crt"
+		;
+connectAttr "Takoto_L_Arm_01_Ctrl.t" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Takoto_L_Arm_01_Ctrl.rp" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Takoto_L_Arm_01_Ctrl.rpt" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Takoto_L_Arm_01_Ctrl.r" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Takoto_L_Arm_01_Ctrl.ro" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Takoto_L_Arm_01_Ctrl.s" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Takoto_L_Arm_01_Ctrl.pm" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint1.w0" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl.FollowTranslate" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint1.w0"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl_Grp.ro" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint2.cro"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl_Grp.pim" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint2.cpim"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl_Grp.rp" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint2.crp"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl_Grp.rpt" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint2.crt"
+		;
+connectAttr "Takoto_L_Arm_01_Ctrl.t" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint2.tg[0].tt"
+		;
+connectAttr "Takoto_L_Arm_01_Ctrl.rp" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint2.tg[0].trp"
+		;
+connectAttr "Takoto_L_Arm_01_Ctrl.rpt" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint2.tg[0].trt"
+		;
+connectAttr "Takoto_L_Arm_01_Ctrl.r" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint2.tg[0].tr"
+		;
+connectAttr "Takoto_L_Arm_01_Ctrl.ro" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint2.tg[0].tro"
+		;
+connectAttr "Takoto_L_Arm_01_Ctrl.s" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint2.tg[0].ts"
+		;
+connectAttr "Takoto_L_Arm_01_Ctrl.pm" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint2.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint2.w0" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint2.tg[0].tw"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl.FollowRotate" "Takoto_L_Arm_02_Ctrl_Grp_parentConstraint2.w0"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint1.ctx" "Takoto_L_Arm_03_Ctrl_Grp.tx"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint1.cty" "Takoto_L_Arm_03_Ctrl_Grp.ty"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint1.ctz" "Takoto_L_Arm_03_Ctrl_Grp.tz"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint2.crx" "Takoto_L_Arm_03_Ctrl_Grp.rx"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint2.cry" "Takoto_L_Arm_03_Ctrl_Grp.ry"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint2.crz" "Takoto_L_Arm_03_Ctrl_Grp.rz"
+		;
 connectAttr "makeNurbCircle7.oc" "Takoto_L_Arm_03_CtrlShape.cr";
-connectAttr "makeNurbCircle8.oc" "Takoto_L_Hand_CtrlShape.cr";
+connectAttr "Takoto_L_Arm_03_Ctrl_Grp.ro" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint1.cro"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl_Grp.pim" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint1.cpim"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl_Grp.rp" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint1.crp"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl_Grp.rpt" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint1.crt"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl.t" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl.rp" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl.rpt" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl.r" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl.ro" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl.s" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl.pm" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint1.w0" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl.FollowTranslate" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint1.w0"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl_Grp.ro" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint2.cro"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl_Grp.pim" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint2.cpim"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl_Grp.rp" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint2.crp"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl_Grp.rpt" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint2.crt"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl.t" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint2.tg[0].tt"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl.rp" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint2.tg[0].trp"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl.rpt" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint2.tg[0].trt"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl.r" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint2.tg[0].tr"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl.ro" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint2.tg[0].tro"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl.s" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint2.tg[0].ts"
+		;
+connectAttr "Takoto_L_Arm_02_Ctrl.pm" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint2.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint2.w0" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint2.tg[0].tw"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl.FollowRotate" "Takoto_L_Arm_03_Ctrl_Grp_parentConstraint2.w0"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint1.ctx" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp.tx"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint1.cty" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp.ty"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint1.ctz" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp.tz"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint2.crx" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp.rx"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint2.cry" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp.ry"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint2.crz" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp.rz"
+		;
 connectAttr "makeNurbCircle10.oc" "Takoto_L_Finger_05_Knuckle_01_CtrlShape.cr";
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp.ro" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint1.cro"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp.pim" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint1.cpim"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp.rp" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint1.crp"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp.rpt" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint1.crt"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.t" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.rp" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.rpt" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.r" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.ro" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.s" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.pm" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint1.w0" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl.FollowTranslate" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint1.w0"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp.ro" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint2.cro"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp.pim" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint2.cpim"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp.rp" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint2.crp"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp.rpt" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint2.crt"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.t" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tt"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.rp" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].trp"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.rpt" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].trt"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.r" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tr"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.ro" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tro"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.s" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].ts"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.pm" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint2.w0" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl.FollowRotate" "Takoto_L_Finger_05_Knuckle_01_Ctrl_Grp_parentConstraint2.w0"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint1.ctx" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp.tx"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint1.cty" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp.ty"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint1.ctz" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp.tz"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint2.crx" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp.rx"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint2.cry" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp.ry"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint2.crz" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp.rz"
+		;
 connectAttr "makeNurbCircle11.oc" "Takoto_L_Finger_05_Knuckle_02_CtrlShape.cr";
+connectAttr "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp.ro" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint1.cro"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp.pim" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint1.cpim"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp.rp" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint1.crp"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp.rpt" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint1.crt"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl.t" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl.rp" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl.rpt" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl.r" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl.ro" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl.s" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl.pm" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint1.w0" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_02_Ctrl.FollowTranslate" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint1.w0"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp.ro" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint2.cro"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp.pim" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint2.cpim"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp.rp" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint2.crp"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp.rpt" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint2.crt"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl.t" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tt"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl.rp" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].trp"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl.rpt" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].trt"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl.r" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tr"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl.ro" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tro"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl.s" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].ts"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_01_Ctrl.pm" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint2.w0" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_05_Knuckle_02_Ctrl.FollowRotate" "Takoto_L_Finger_05_Knuckle_02_Ctrl_Grp_parentConstraint2.w0"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint1.ctx" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp.tx"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint1.cty" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp.ty"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint1.ctz" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp.tz"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint2.crx" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp.rx"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint2.cry" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp.ry"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint2.crz" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp.rz"
+		;
 connectAttr "makeNurbCircle12.oc" "Takoto_L_Finger_04_Knuckle_01_CtrlShape.cr";
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp.ro" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint1.cro"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp.pim" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint1.cpim"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp.rp" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint1.crp"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp.rpt" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint1.crt"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.t" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.rp" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.rpt" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.r" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.ro" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.s" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.pm" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint1.w0" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl.FollowTranslate" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint1.w0"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp.ro" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint2.cro"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp.pim" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint2.cpim"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp.rp" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint2.crp"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp.rpt" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint2.crt"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.t" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tt"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.rp" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].trp"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.rpt" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].trt"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.r" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tr"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.ro" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tro"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.s" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].ts"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.pm" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint2.w0" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl.FollowRotate" "Takoto_L_Finger_04_Knuckle_01_Ctrl_Grp_parentConstraint2.w0"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint1.ctx" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp.tx"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint1.cty" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp.ty"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint1.ctz" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp.tz"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint2.crx" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp.rx"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint2.cry" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp.ry"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint2.crz" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp.rz"
+		;
 connectAttr "makeNurbCircle13.oc" "Takoto_L_Finger_04_Knuckle_02_CtrlShape.cr";
+connectAttr "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp.ro" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint1.cro"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp.pim" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint1.cpim"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp.rp" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint1.crp"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp.rpt" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint1.crt"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl.t" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl.rp" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl.rpt" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl.r" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl.ro" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl.s" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl.pm" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint1.w0" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_02_Ctrl.FollowTranslate" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint1.w0"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp.ro" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint2.cro"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp.pim" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint2.cpim"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp.rp" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint2.crp"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp.rpt" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint2.crt"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl.t" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tt"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl.rp" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].trp"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl.rpt" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].trt"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl.r" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tr"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl.ro" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tro"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl.s" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].ts"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_01_Ctrl.pm" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint2.w0" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_04_Knuckle_02_Ctrl.FollowRotate" "Takoto_L_Finger_04_Knuckle_02_Ctrl_Grp_parentConstraint2.w0"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint1.ctx" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp.tx"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint1.cty" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp.ty"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint1.ctz" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp.tz"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint2.crx" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp.rx"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint2.cry" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp.ry"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint2.crz" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp.rz"
+		;
 connectAttr "makeNurbCircle15.oc" "Takoto_L_Finger_01_Knuckle_02_CtrlShape.cr";
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp.ro" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint1.cro"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp.pim" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint1.cpim"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp.rp" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint1.crp"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp.rpt" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint1.crt"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl.t" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl.rp" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl.rpt" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl.r" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl.ro" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl.s" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl.pm" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint1.w0" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl.FollowTranslate" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint1.w0"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp.ro" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint2.cro"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp.pim" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint2.cpim"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp.rp" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint2.crp"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp.rpt" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint2.crt"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl.t" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tt"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl.rp" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].trp"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl.rpt" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].trt"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl.r" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tr"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl.ro" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tro"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl.s" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].ts"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl.pm" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint2.w0" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl.FollowRotate" "Takoto_L_Finger_01_Knuckle_02_Ctrl_Grp_parentConstraint2.w0"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint1.ctx" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp.tx"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint1.cty" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp.ty"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint1.ctz" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp.tz"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint2.crx" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp.rx"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint2.cry" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp.ry"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint2.crz" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp.rz"
+		;
 connectAttr "makeNurbCircle16.oc" "Takoto_L_Finger_01_Knuckle_03_CtrlShape.cr";
+connectAttr "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp.ro" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint1.cro"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp.pim" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint1.cpim"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp.rp" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint1.crp"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp.rpt" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint1.crt"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl.t" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl.rp" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl.rpt" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl.r" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl.ro" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl.s" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl.pm" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint1.w0" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_03_Ctrl.FollowTranslate" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint1.w0"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp.ro" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint2.cro"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp.pim" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint2.cpim"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp.rp" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint2.crp"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp.rpt" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint2.crt"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl.t" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint2.tg[0].tt"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl.rp" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint2.tg[0].trp"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl.rpt" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint2.tg[0].trt"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl.r" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint2.tg[0].tr"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl.ro" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint2.tg[0].tro"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl.s" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint2.tg[0].ts"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_02_Ctrl.pm" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint2.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint2.w0" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint2.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_03_Ctrl.FollowRotate" "Takoto_L_Finger_01_Knuckle_03_Ctrl_Grp_parentConstraint2.w0"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint1.ctx" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp.tx"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint1.cty" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp.ty"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint1.ctz" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp.tz"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint2.crx" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp.rx"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint2.cry" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp.ry"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint2.crz" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp.rz"
+		;
 connectAttr "makeNurbCircle17.oc" "Takoto_L_Finger_02_Knuckle_01_CtrlShape.cr";
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp.ro" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint1.cro"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp.pim" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint1.cpim"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp.rp" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint1.crp"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp.rpt" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint1.crt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.t" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.rp" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.rpt" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.r" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.ro" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.s" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.pm" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint1.w0" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl.FollowTranslate" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint1.w0"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp.ro" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint2.cro"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp.pim" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint2.cpim"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp.rp" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint2.crp"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp.rpt" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint2.crt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.t" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.rp" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].trp"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.rpt" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].trt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.r" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tr"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.ro" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tro"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.s" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].ts"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.pm" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint2.w0" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl.FollowRotate" "Takoto_L_Finger_02_Knuckle_01_Ctrl_Grp_parentConstraint2.w0"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint1.ctx" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp.tx"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint1.cty" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp.ty"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint1.ctz" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp.tz"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint2.crx" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp.rx"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint2.cry" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp.ry"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint2.crz" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp.rz"
+		;
 connectAttr "makeNurbCircle18.oc" "Takoto_L_Finger_02_Knuckle_02_CtrlShape.cr";
+connectAttr "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp.ro" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint1.cro"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp.pim" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint1.cpim"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp.rp" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint1.crp"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp.rpt" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint1.crt"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl.t" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl.rp" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl.rpt" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl.r" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl.ro" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl.s" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl.pm" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint1.w0" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_02_Ctrl.FollowTranslate" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint1.w0"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp.ro" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint2.cro"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp.pim" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint2.cpim"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp.rp" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint2.crp"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp.rpt" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint2.crt"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl.t" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tt"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl.rp" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].trp"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl.rpt" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].trt"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl.r" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tr"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl.ro" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tro"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl.s" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].ts"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_01_Ctrl.pm" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint2.w0" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_02_Knuckle_02_Ctrl.FollowRotate" "Takoto_L_Finger_02_Knuckle_02_Ctrl_Grp_parentConstraint2.w0"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint1.ctx" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp.tx"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint1.cty" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp.ty"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint1.ctz" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp.tz"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint2.crx" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp.rx"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint2.cry" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp.ry"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint2.crz" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp.rz"
+		;
 connectAttr "makeNurbCircle19.oc" "Takoto_L_Finger_03_Knuckle_01_CtrlShape.cr";
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp.ro" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint1.cro"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp.pim" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint1.cpim"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp.rp" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint1.crp"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp.rpt" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint1.crt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.t" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.rp" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.rpt" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.r" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.ro" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.s" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.pm" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint1.w0" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl.FollowTranslate" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint1.w0"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp.ro" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint2.cro"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp.pim" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint2.cpim"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp.rp" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint2.crp"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp.rpt" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint2.crt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.t" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.rp" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].trp"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.rpt" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].trt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.r" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tr"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.ro" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tro"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.s" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].ts"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.pm" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint2.w0" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl.FollowRotate" "Takoto_L_Finger_03_Knuckle_01_Ctrl_Grp_parentConstraint2.w0"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint1.ctx" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp.tx"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint1.cty" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp.ty"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint1.ctz" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp.tz"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint2.crx" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp.rx"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint2.cry" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp.ry"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint2.crz" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp.rz"
+		;
 connectAttr "makeNurbCircle20.oc" "Takoto_L_Finger_03_Knuckle_02_CtrlShape.cr";
+connectAttr "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp.ro" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint1.cro"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp.pim" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint1.cpim"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp.rp" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint1.crp"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp.rpt" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint1.crt"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl.t" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl.rp" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl.rpt" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl.r" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl.ro" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl.s" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl.pm" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint1.w0" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_02_Ctrl.FollowTranslate" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint1.w0"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp.ro" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint2.cro"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp.pim" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint2.cpim"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp.rp" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint2.crp"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp.rpt" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint2.crt"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl.t" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tt"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl.rp" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].trp"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl.rpt" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].trt"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl.r" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tr"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl.ro" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tro"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl.s" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].ts"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_01_Ctrl.pm" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint2.w0" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint2.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_03_Knuckle_02_Ctrl.FollowRotate" "Takoto_L_Finger_03_Knuckle_02_Ctrl_Grp_parentConstraint2.w0"
+		;
+connectAttr "Takoto_L_Palm_Ctrl_Grp_parentConstraint1.ctx" "Takoto_L_Palm_Ctrl_Grp.tx"
+		;
+connectAttr "Takoto_L_Palm_Ctrl_Grp_parentConstraint1.cty" "Takoto_L_Palm_Ctrl_Grp.ty"
+		;
+connectAttr "Takoto_L_Palm_Ctrl_Grp_parentConstraint1.ctz" "Takoto_L_Palm_Ctrl_Grp.tz"
+		;
+connectAttr "Takoto_L_Palm_Ctrl_Grp_parentConstraint2.crx" "Takoto_L_Palm_Ctrl_Grp.rx"
+		;
+connectAttr "Takoto_L_Palm_Ctrl_Grp_parentConstraint2.cry" "Takoto_L_Palm_Ctrl_Grp.ry"
+		;
+connectAttr "Takoto_L_Palm_Ctrl_Grp_parentConstraint2.crz" "Takoto_L_Palm_Ctrl_Grp.rz"
+		;
 connectAttr "makeNurbCircle21.oc" "Takoto_L_Palm_CtrlShape.cr";
+connectAttr "Takoto_L_Palm_Ctrl_Grp.ro" "Takoto_L_Palm_Ctrl_Grp_parentConstraint1.cro"
+		;
+connectAttr "Takoto_L_Palm_Ctrl_Grp.pim" "Takoto_L_Palm_Ctrl_Grp_parentConstraint1.cpim"
+		;
+connectAttr "Takoto_L_Palm_Ctrl_Grp.rp" "Takoto_L_Palm_Ctrl_Grp_parentConstraint1.crp"
+		;
+connectAttr "Takoto_L_Palm_Ctrl_Grp.rpt" "Takoto_L_Palm_Ctrl_Grp_parentConstraint1.crt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.t" "Takoto_L_Palm_Ctrl_Grp_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.rp" "Takoto_L_Palm_Ctrl_Grp_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.rpt" "Takoto_L_Palm_Ctrl_Grp_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.r" "Takoto_L_Palm_Ctrl_Grp_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.ro" "Takoto_L_Palm_Ctrl_Grp_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.s" "Takoto_L_Palm_Ctrl_Grp_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.pm" "Takoto_L_Palm_Ctrl_Grp_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Palm_Ctrl_Grp_parentConstraint1.w0" "Takoto_L_Palm_Ctrl_Grp_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.FollowTranslate" "Takoto_L_Palm_Ctrl_Grp_parentConstraint1.w0"
+		;
+connectAttr "Takoto_L_Palm_Ctrl_Grp.ro" "Takoto_L_Palm_Ctrl_Grp_parentConstraint2.cro"
+		;
+connectAttr "Takoto_L_Palm_Ctrl_Grp.pim" "Takoto_L_Palm_Ctrl_Grp_parentConstraint2.cpim"
+		;
+connectAttr "Takoto_L_Palm_Ctrl_Grp.rp" "Takoto_L_Palm_Ctrl_Grp_parentConstraint2.crp"
+		;
+connectAttr "Takoto_L_Palm_Ctrl_Grp.rpt" "Takoto_L_Palm_Ctrl_Grp_parentConstraint2.crt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.t" "Takoto_L_Palm_Ctrl_Grp_parentConstraint2.tg[0].tt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.rp" "Takoto_L_Palm_Ctrl_Grp_parentConstraint2.tg[0].trp"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.rpt" "Takoto_L_Palm_Ctrl_Grp_parentConstraint2.tg[0].trt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.r" "Takoto_L_Palm_Ctrl_Grp_parentConstraint2.tg[0].tr"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.ro" "Takoto_L_Palm_Ctrl_Grp_parentConstraint2.tg[0].tro"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.s" "Takoto_L_Palm_Ctrl_Grp_parentConstraint2.tg[0].ts"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.pm" "Takoto_L_Palm_Ctrl_Grp_parentConstraint2.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Palm_Ctrl_Grp_parentConstraint2.w0" "Takoto_L_Palm_Ctrl_Grp_parentConstraint2.tg[0].tw"
+		;
+connectAttr "Takoto_L_Palm_Ctrl.FollowRotate" "Takoto_L_Palm_Ctrl_Grp_parentConstraint2.w0"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint1.ctx" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp.tx"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint1.cty" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp.ty"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint1.ctz" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp.tz"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint2.crx" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp.rx"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint2.cry" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp.ry"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint2.crz" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp.rz"
+		;
 connectAttr "makeNurbCircle22.oc" "Takoto_L_Finger_01_Knuckle_01_CtrlShape.cr";
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp.ro" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint1.cro"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp.pim" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint1.cpim"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp.rp" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint1.crp"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp.rpt" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint1.crt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.t" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.rp" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.rpt" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.r" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.ro" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.s" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.pm" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint1.w0" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl.FollowTranslate" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint1.w0"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp.ro" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint2.cro"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp.pim" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint2.cpim"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp.rp" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint2.crp"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp.rpt" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint2.crt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.t" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.rp" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].trp"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.rpt" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].trt"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.r" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tr"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.ro" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tro"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.s" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].ts"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.pm" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint2.w0" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint2.tg[0].tw"
+		;
+connectAttr "Takoto_L_Finger_01_Knuckle_01_Ctrl.FollowRotate" "Takoto_L_Finger_01_Knuckle_01_Ctrl_Grp_parentConstraint2.w0"
+		;
+connectAttr "makeNurbCircle23.oc" "Takoto_L_Leg_01_CtrlShape.cr";
+connectAttr "makeNurbCircle24.oc" "Takoto_L_Leg_02_CtrlShape.cr";
+connectAttr "makeNurbCircle25.oc" "Takoto_L_Leg_03_CtrlShape.cr";
+connectAttr "makeNurbCircle26.oc" "Takoto_L_Foot_01_CtrlShape.cr";
+connectAttr "makeNurbCircle27.oc" "Takoto_L_Foot_02_CtrlShape.cr";
+connectAttr "makeNurbCircle28.oc" "Takoto_Pelvis_CtrlShape.cr";
+connectAttr "makeNurbCircle29.oc" "Takoto_R_Leg_01_CtrlShape.cr";
+connectAttr "makeNurbCircle30.oc" "Takoto_R_Leg_02_CtrlShape.cr";
+connectAttr "makeNurbCircle31.oc" "Takoto_R_Leg_03_CtrlShape.cr";
+connectAttr "makeNurbCircle32.oc" "Takoto_R_Foot_01_CtrlShape.cr";
+connectAttr "makeNurbCircle33.oc" "Takoto_R_Foot_02_CtrlShape.cr";
+connectAttr "makeNurbCircle34.oc" "Takoto_R_Arm_01_CtrlShape.cr";
+connectAttr "makeNurbCircle35.oc" "Takoto_R_Arm_01_jnt1_Takoto_R_Arm_02_CtrlShape.cr"
+		;
+connectAttr "makeNurbCircle36.oc" "Takoto_R_Arm_01_jnt1_Takoto_R_Arm_02_jnt_Takoto_R_Arm_03_CtrlShape.cr"
+		;
+connectAttr "Takoto_L_Hand_Ctrl_Grp_parentConstraint1.ctx" "Takoto_L_Hand_Ctrl_Grp.tx"
+		;
+connectAttr "Takoto_L_Hand_Ctrl_Grp_parentConstraint1.cty" "Takoto_L_Hand_Ctrl_Grp.ty"
+		;
+connectAttr "Takoto_L_Hand_Ctrl_Grp_parentConstraint1.ctz" "Takoto_L_Hand_Ctrl_Grp.tz"
+		;
+connectAttr "Takoto_L_Hand_Ctrl_Grp_parentConstraint2.crx" "Takoto_L_Hand_Ctrl_Grp.rx"
+		;
+connectAttr "Takoto_L_Hand_Ctrl_Grp_parentConstraint2.cry" "Takoto_L_Hand_Ctrl_Grp.ry"
+		;
+connectAttr "Takoto_L_Hand_Ctrl_Grp_parentConstraint2.crz" "Takoto_L_Hand_Ctrl_Grp.rz"
+		;
+connectAttr "makeNurbCircle37.oc" "Takoto_L_Hand_CtrlShape.cr";
+connectAttr "Takoto_L_Hand_Ctrl_Grp.ro" "Takoto_L_Hand_Ctrl_Grp_parentConstraint1.cro"
+		;
+connectAttr "Takoto_L_Hand_Ctrl_Grp.pim" "Takoto_L_Hand_Ctrl_Grp_parentConstraint1.cpim"
+		;
+connectAttr "Takoto_L_Hand_Ctrl_Grp.rp" "Takoto_L_Hand_Ctrl_Grp_parentConstraint1.crp"
+		;
+connectAttr "Takoto_L_Hand_Ctrl_Grp.rpt" "Takoto_L_Hand_Ctrl_Grp_parentConstraint1.crt"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl.t" "Takoto_L_Hand_Ctrl_Grp_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl.rp" "Takoto_L_Hand_Ctrl_Grp_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl.rpt" "Takoto_L_Hand_Ctrl_Grp_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl.r" "Takoto_L_Hand_Ctrl_Grp_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl.ro" "Takoto_L_Hand_Ctrl_Grp_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl.s" "Takoto_L_Hand_Ctrl_Grp_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl.pm" "Takoto_L_Hand_Ctrl_Grp_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Hand_Ctrl_Grp_parentConstraint1.w0" "Takoto_L_Hand_Ctrl_Grp_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.FollowTranslate" "Takoto_L_Hand_Ctrl_Grp_parentConstraint1.w0"
+		;
+connectAttr "Takoto_L_Hand_Ctrl_Grp.ro" "Takoto_L_Hand_Ctrl_Grp_parentConstraint2.cro"
+		;
+connectAttr "Takoto_L_Hand_Ctrl_Grp.pim" "Takoto_L_Hand_Ctrl_Grp_parentConstraint2.cpim"
+		;
+connectAttr "Takoto_L_Hand_Ctrl_Grp.rp" "Takoto_L_Hand_Ctrl_Grp_parentConstraint2.crp"
+		;
+connectAttr "Takoto_L_Hand_Ctrl_Grp.rpt" "Takoto_L_Hand_Ctrl_Grp_parentConstraint2.crt"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl.t" "Takoto_L_Hand_Ctrl_Grp_parentConstraint2.tg[0].tt"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl.rp" "Takoto_L_Hand_Ctrl_Grp_parentConstraint2.tg[0].trp"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl.rpt" "Takoto_L_Hand_Ctrl_Grp_parentConstraint2.tg[0].trt"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl.r" "Takoto_L_Hand_Ctrl_Grp_parentConstraint2.tg[0].tr"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl.ro" "Takoto_L_Hand_Ctrl_Grp_parentConstraint2.tg[0].tro"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl.s" "Takoto_L_Hand_Ctrl_Grp_parentConstraint2.tg[0].ts"
+		;
+connectAttr "Takoto_L_Arm_03_Ctrl.pm" "Takoto_L_Hand_Ctrl_Grp_parentConstraint2.tg[0].tpm"
+		;
+connectAttr "Takoto_L_Hand_Ctrl_Grp_parentConstraint2.w0" "Takoto_L_Hand_Ctrl_Grp_parentConstraint2.tg[0].tw"
+		;
+connectAttr "Takoto_L_Hand_Ctrl.FollowRotate" "Takoto_L_Hand_Ctrl_Grp_parentConstraint2.w0"
+		;
+connectAttr "makeNurbCircle38.oc" "Takoto_R_Hand_CtrlShape.cr";
+connectAttr "makeNurbCircle40.oc" "Takoto_R_Finger_05_Knuckle_01_CtrlShape.cr";
+connectAttr "makeNurbCircle41.oc" "Takoto_R_Finger_05_Knuckle_02_CtrlShape.cr";
+connectAttr "makeNurbCircle42.oc" "Takoto_R_Finger_04_Knuckle_01_CtrlShape.cr";
+connectAttr "makeNurbCircle43.oc" "Takoto_R_Finger_04_Knuckle_02_CtrlShape.cr";
+connectAttr "makeNurbCircle45.oc" "Takoto_R_Finger_01_Knuckle_02_CtrlShape.cr";
+connectAttr "makeNurbCircle46.oc" "Takoto_R_Finger_01_Knuckle_03_CtrlShape.cr";
+connectAttr "makeNurbCircle47.oc" "Takoto_R_Finger_02_Knuckle_01_CtrlShape.cr";
+connectAttr "makeNurbCircle48.oc" "Takoto_R_Finger_02_Knuckle_02_CtrlShape.cr";
+connectAttr "makeNurbCircle49.oc" "Takoto_R_Finger_03_Knuckle_01_CtrlShape.cr";
+connectAttr "makeNurbCircle50.oc" "Takoto_R_Finger_03_Knuckle_02_CtrlShape.cr";
 connectAttr "diss_01FBXASC046png.oc" "DiffuseColor.cs[0].c";
 connectAttr "place2dTexture1.o" "diss_01FBXASC046png.uv";
 connectAttr "place2dTexture1.ofu" "diss_01FBXASC046png.ofu";
